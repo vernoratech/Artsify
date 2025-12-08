@@ -37,7 +37,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-pink-100 selection:text-pink-900">
       <Navbar />
-      <div className="pt-20">
+      <div className={location.pathname === '/' ? 'pt-0' : 'pt-20'}>
         <div key={location.pathname} className="page-transition">
           <Routes location={location}>
             <Route path="/" element={<Home />} />
