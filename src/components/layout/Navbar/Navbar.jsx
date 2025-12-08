@@ -1,107 +1,74 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
-const Navbar = ({ onNavClick }) => {
+const links = [
+  { name: 'Home', to: '/' },
+  { name: 'About', to: '/about' },
+  { name: 'Gallery', to: '/gallery' },
+  { name: 'Services', to: '/services' },
+  { name: 'Shop', to: '/shop' },
+  { name: 'Testimonials', to: '/testimonials' },
+  { name: 'FAQ', to: '/faq' },
+  { name: 'Blog', to: '/blog' },
+  { name: 'Contact', to: '/contact' },
+];
+
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('Home');
-
-  const links = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Portfolio', href: '#' },
-    { name: 'Contact', href: '#' },
-  ];
-
-  // Custom SVG for the stylized 'J' logo with leaf
-  const LogoIcon = () => (
-    <div className="flex items-center gap-2">
-      {/* Icon */}
-      <svg
-        width="60"
-        height="60"
-        viewBox="0 0 100 100"
-        className="text-gray-800"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      >
-        {/* Brush stroke */}
-        <path
-          d="
-        M65,20 
-        C60,18 55,25 55,30 
-        C55,35 60,35 60,30 
-        C60,25 68,20 75,25 
-        C82,30 75,45 65,65 
-        C55,85 45,95 35,95 
-        C25,95 20,85 25,75 
-        C30,65 45,55 50,50
-      "
-        />
-
-        {/* Leaf accent (cleaned + centered properly) */}
-        <g strokeWidth="2" opacity="0.8" transform="translate(20, -6)">
-          <path d="M2,12 C2,12 8,10 12,2 C12,2 14,8 22,12" />
-          <path d="M12,12 C12,12 10,16 2,20" />
-          <path d="M12,12 C12,12 16,14 20,20" />
-          <path d="M8,11 L10,8" />
-          <path d="M14,11 L16,8" />
-          <path d="M10,13 L8,16" />
-          <path d="M14,13 L16,16" />
-        </g>
-      </svg>
-
-      {/* Brand Text */}
-      <span className="font-serif text-3xl text-gray-800 tracking-wide">
-        Artsify
-      </span>
-    </div>
-
-  );
 
   return (
-    <nav className="w-full bg-white border-b border-gray-100/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-pink-100 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
-          <div className="shrink-0 flex items-center cursor-pointer">
-            <LogoIcon />
-          </div>
+          <NavLink to="/" className="flex items-center cursor-pointer" onClick={() => setIsOpen(false)}>
+            <div className="relative">
+              <span className="font-serif text-3xl text-gray-800 tracking-wide font-bold">
+                Arts<span className="text-pink-400">ify</span>
+              </span>
+              <span className="absolute -bottom-2 right-0 text-[10px] text-sky-500 uppercase tracking-widest">
+                Est. 2024
+              </span>
+            </div>
+          </NavLink>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-12">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {links.map((link) => (
-              <button
+              <NavLink
                 key={link.name}
-                onClick={() => {
-                  setActiveLink(link.name);
-                  if (onNavClick) {
-                    onNavClick(link.name);
-                  }
-                }}
-                className={`
-                  relative font-serif text-lg transition-colors duration-200
-                  ${activeLink === link.name ? 'text-black' : 'text-gray-600 hover:text-black'}
-                `}
+                to={link.to}
+                end={link.to === '/'}
+                className={({ isActive }) =>
+                  `relative font-serif text-sm lg:text-base transition-colors duration-200 ${isActive ? 'text-pink-500' : 'text-gray-600 hover:text-sky-500'
+                  }`
+                }
               >
-                {link.name}
-                {/* Underline for active state */}
-                <span
-                  className={`
-                    absolute left-0 -bottom-1 h-[1.5px] bg-black transition-all duration-300
-                    ${activeLink === link.name ? 'w-full' : 'w-0'}
-                  `}
-                />
-              </button>
+                {({ isActive }) => (
+                  <>
+                    {link.name}
+                    <span
+                      className={`absolute left-0 -bottom-1 h-[2px] bg-linear-to-r from-pink-300 to-sky-300 transition-all duration-300 ${isActive ? 'w-full' : 'w-0'
+                        }`}
+                    />
+                  </>
+                )}
+              </NavLink>
             ))}
+            <NavLink
+              to="/services"
+              className="px-6 py-2 bg-linear-to-r from-sky-400 to-pink-400 text-white font-serif rounded-full hover:shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-0.5"
+            >
+              Order Now
+            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-black focus:outline-none p-2"
+              className="text-gray-600 hover:text-pink-500 focus:outline-none p-2"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -111,31 +78,25 @@ const Navbar = ({ onNavClick }) => {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`
-          md:hidden overflow-hidden transition-all duration-300 ease-in-out
-          ${isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}
-        `}
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
       >
-        <div className="px-4 pt-2 pb-6 space-y-2 bg-white shadow-sm">
+        <div className="px-4 pt-2 pb-6 space-y-2 bg-white shadow-sm border-t border-pink-50">
           {links.map((link) => (
-            <button
+            <NavLink
               key={link.name}
-              onClick={() => {
-                setActiveLink(link.name);
-                if (onNavClick) {
-                  onNavClick(link.name);
-                }
-                setIsOpen(false);
-              }}
-              className={`
-                block w-full text-left px-3 py-3 font-serif text-lg rounded-md transition-colors
-                ${activeLink === link.name
-                  ? 'bg-gray-50 text-black font-medium'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-black'}
-              `}
+              to={link.to}
+              end={link.to === '/'}
+              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                `block w-full text-left px-3 py-3 font-serif text-base rounded-md transition-colors ${isActive
+                  ? 'bg-pink-50 text-pink-600 font-medium'
+                  : 'text-gray-600 hover:bg-sky-50 hover:text-sky-600'
+                }`
+              }
             >
               {link.name}
-            </button>
+            </NavLink>
           ))}
         </div>
       </div>
