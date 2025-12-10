@@ -71,7 +71,7 @@ const Hero = () => {
               </div>
               {/* Phone Case Overlap */}
               <div className="absolute bottom-4 left-4 w-1/2 h-2/3 bg-white p-2 shadow-xl rounded-2xl transform -rotate-6 hover:rotate-0 transition-transform duration-500 z-20">
-                <img src={img11} className="w-full h-full object-cover rounded-xl" alt="Phone Case Art" />
+                <img src={img11} className="w-full h-full object-cover rounded-xl" alt="Phone Case Art" onError={(e) => e.target.src = 'https://placehold.co/600x800/EEE/31343C?font=playfair-display&text=Phone Case Art'} />
               </div>
               {/* Blobs */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-sky-200 to-pink-200 rounded-full blur-3xl opacity-30 -z-10 animate-blob"></div>
