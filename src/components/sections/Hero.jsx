@@ -1,38 +1,84 @@
 import React from 'react'
+import { MessageCircle, Heart } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
-const Hero = () => (
-  // Fixed: bg-gradient-to-br (not bg-linear-to-br)
-  <section className="fixed top-0 left-0 w-full h-screen flex items-center justify-center z-0 overflow-hidden bg-gradient-to-br from-white via-sky-50 to-pink-50">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <h2 className="text-sky-500 font-medium tracking-[0.2em] uppercase text-sm mb-4">Handmade with Love</h2>
-      <h1 className="text-5xl md:text-7xl font-serif text-gray-800 mb-6 leading-tight">
-        Best gift for <br />
-        {/* Fixed: bg-gradient-to-r (not bg-linear-to-r) */}
-        <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-sky-400">any occasion</span>
-      </h1>
-      <p className="max-w-2xl mx-auto text-gray-600 text-lg md:text-xl font-light mb-10 leading-relaxed">
-        Transforming memories into timeless masterpieces. Specializing in realistic portraits, sketches, and custom acrylic art.
-      </p>
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
+const Hero = () => {
+  const navigate = useNavigate()
 
-        <a href="/services"
-          className="px-8 py-3 bg-gray-900 text-white font-serif text-lg rounded-md hover:bg-gray-800 transition-colors shadow-lg"
-        >
-          Start Your Order
-        </a>
-        <a href="/gallery"
-          className="px-8 py-3 bg-white border border-gray-200 text-gray-800 font-serif text-lg rounded-md hover:border-pink-300 hover:text-pink-500 transition-colors"
-        >
-          View Gallery
-        </a>
+  const handleOrderPortrait = () => {
+    navigate('/services')
+  }
+
+  const handleViewGallery = () => {
+    navigate('/gallery')
+  }
+
+  return (
+    <section id="hero" className="relative pt-32 pb-12 lg:pt-40 lg:pb-24 overflow-hidden bg-gradient-to-br from-sky-50 via-white to-pink-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+          {/* Left Side: Content */}
+          <div className="order-2 lg:order-1 text-center lg:text-left z-10">
+            <h1 className="text-5xl lg:text-6xl font-serif text-gray-900 leading-tight mb-6">
+              Custom Portraits, <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-pink-400 italic">
+                Perfect for Any Occasion
+              </span>
+            </h1>
+            <p className="text-lg text-gray-600 mb-8 font-light max-w-lg mx-auto lg:mx-0">
+              Handcrafted realistic portraits, couple sketches, and custom phone cases made from your favorite memories.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <button
+                onClick={handleOrderPortrait}
+                className="px-8 py-3 bg-gray-900 text-white font-serif text-lg rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl"
+              >
+                Order a Portrait
+              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={handleViewGallery}
+                  className="px-6 py-3 border border-gray-300 text-gray-700 font-serif rounded-full hover:border-pink-300 hover:text-pink-500 transition-all bg-white/50"
+                >
+                  View Gallery
+                </button>
+                <a
+                  href="https://wa.me/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-3 border border-green-200 text-green-600 rounded-full hover:bg-green-50 transition-all flex items-center justify-center bg-white/50"
+                  aria-label="Chat on WhatsApp"
+                >
+                  <MessageCircle size={20} />
+                </a>
+              </div>
+            </div>
+            <p className="mt-6 text-xs text-gray-400 tracking-wider uppercase flex items-center justify-center lg:justify-start gap-2">
+              <Heart size={12} className="text-pink-400 fill-current" /> Handcrafted gifts made with love
+            </p>
+          </div>
+
+          {/* Right Side: Collage */}
+          <div className="order-1 lg:order-2 relative">
+            <div className="relative w-full max-w-lg mx-auto aspect-square">
+              {/* Main Portrait */}
+              <div className="absolute top-0 right-0 w-3/4 h-3/4 bg-white p-2 shadow-2xl rounded-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 z-10">
+                <img src="img24.jpg" className="w-full h-full object-cover rounded-xl" alt="Realistic Portrait" onError={(e) => e.target.src = 'https://placehold.co/600x800/EEE/31343C?font=playfair-display&text=Portrait'} />
+              </div>
+              {/* Phone Case Overlap */}
+              <div className="absolute bottom-4 left-4 w-1/2 h-2/3 bg-white p-2 shadow-xl rounded-2xl transform -rotate-6 hover:rotate-0 transition-transform duration-500 z-20">
+                <img src="https://placehold.co/400x600/pink/white?text=Phone+Case" className="w-full h-full object-cover rounded-xl" alt="Phone Case Art" />
+              </div>
+              {/* Blobs */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-sky-200 to-pink-200 rounded-full blur-3xl opacity-30 -z-10 animate-blob"></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    {/* Decorative Blobs */}
-    <div className="absolute top-0 left-0 w-64 h-64 bg-sky-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
-    <div className="absolute top-0 right-0 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
-    <div className="absolute -bottom-32 left-20 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000" />
-  </section>
-)
+    </section>
+  )
+}
 
 export default Hero
