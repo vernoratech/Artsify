@@ -10,7 +10,7 @@ const links = [
   { name: 'Shop', to: '/shop' },
   { name: 'Testimonials', to: '/testimonials' },
   { name: 'FAQ', to: '/faq' },
-  { name: 'Blog', to: '/blog' },
+  // { name: 'Blog', to: '/blog' },
   { name: 'Contact', to: '/contact' },
 ];
 
@@ -132,7 +132,10 @@ const Navbar = () => {
                     }`
                   }
                   style={{
-                    transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
+                    transitionProperty: 'transform, opacity',
+                    transitionDuration: isOpen ? '0.3s' : '0.2s',
+                    transitionTimingFunction: 'ease-out',
+                    transitionDelay: isOpen ? `${index * 50}ms` : `${(links.length - index) * 20}ms`,
                     transform: isOpen ? 'translateX(0)' : 'translateX(40px)',
                     opacity: isOpen ? 1 : 0,
                   }}
@@ -160,10 +163,12 @@ const Navbar = () => {
           <div
             className="mt-6"
             style={{
+              transitionProperty: 'transform, opacity',
+              transitionDuration: isOpen ? '0.4s' : '0.15s',
+              transitionTimingFunction: 'ease-out',
               transitionDelay: isOpen ? `${links.length * 50 + 100}ms` : '0ms',
               transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
               opacity: isOpen ? 1 : 0,
-              transition: 'all 0.4s ease-out',
             }}
           >
             <NavLink
@@ -180,10 +185,12 @@ const Navbar = () => {
           <div
             className="mt-8 pt-6 border-t border-gray-200/50"
             style={{
+              transitionProperty: 'transform, opacity',
+              transitionDuration: isOpen ? '0.4s' : '0.15s',
+              transitionTimingFunction: 'ease-out',
               transitionDelay: isOpen ? `${links.length * 50 + 200}ms` : '0ms',
               transform: isOpen ? 'translateY(0)' : 'translateY(20px)',
               opacity: isOpen ? 1 : 0,
-              transition: 'all 0.4s ease-out',
             }}
           >
             {/* Social Links */}
