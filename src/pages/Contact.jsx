@@ -1,5 +1,6 @@
 import React from 'react'
 import { Instagram, MessageCircle } from 'lucide-react'
+import AnimateOnScroll from '../components/ui/AnimateOnScroll'
 
 const Contact = () => {
   return (
@@ -10,8 +11,8 @@ const Contact = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          {/* Left Side - Form (Styled minimalist like reference) */}
-          <div className="order-2 md:order-1">
+          {/* Left Side - Form */}
+          <AnimateOnScroll animation="fadeRight" duration={800} className="order-2 md:order-1">
             <form className="space-y-10">
               <div className="relative">
                 <input
@@ -42,10 +43,10 @@ const Contact = () => {
                 Send
               </button>
             </form>
-          </div>
+          </AnimateOnScroll>
 
-          {/* Right Side - Info (Creative Typography) */}
-          <div className="order-1 md:order-2 space-y-8 text-center md:text-right">
+          {/* Right Side - Info */}
+          <AnimateOnScroll animation="fadeLeft" duration={800} delay={200} className="order-1 md:order-2 space-y-8 text-center md:text-right">
             <div className="relative inline-block">
               <h2 className="text-4xl md:text-5xl font-serif text-gray-900 leading-tight">
                 I'm always happy <br /> to{' '}
@@ -86,7 +87,7 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

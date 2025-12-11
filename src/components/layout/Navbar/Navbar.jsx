@@ -36,7 +36,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo Section */}
-            <NavLink to="/" className="flex items-center cursor-pointer z-[110]" onClick={() => setIsOpen(false)}>
+            <a href="/" className="flex items-center cursor-pointer z-[110]" onClick={() => setIsOpen(false)}>
               <div className="relative">
                 <span className="font-serif text-3xl text-gray-800 tracking-wide font-bold">
                   Arts<span className="text-pink-400">ify</span>
@@ -45,7 +45,7 @@ const Navbar = () => {
                   Est. 2024
                 </span>
               </div>
-            </NavLink>
+            </a>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6 lg:space-x-8">

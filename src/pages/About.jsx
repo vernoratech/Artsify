@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Heart, Gift, Clock, ShieldCheck, PenTool } from 'lucide-react'
+import AnimateOnScroll from '../components/ui/AnimateOnScroll'
 
 const reasons = [
   { icon: <Heart className="w-6 h-6 text-pink-500" />, title: "Handcrafted with Love", desc: "Every sketch is 100% handmade, pouring emotion into every stroke." },

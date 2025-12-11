@@ -2,6 +2,7 @@ import { ArrowRight, BadgeCheck, Heart, Instagram, MessageCircle, Quote, Shield,
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { artPieces } from '../data/artPieces'
+import AnimateOnScroll, { StaggerContainer } from '../components/ui/AnimateOnScroll'
 
 const testimonials = [
   {
@@ -96,7 +97,7 @@ const Testimonials = () => {
     <>
       {/* Hero Section */}
       <section className="pt-28 pb-16 bg-gradient-to-b from-pink-50/50 to-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <AnimateOnScroll animation="fadeUp" duration={800} className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-pink-100 text-pink-600 rounded-full text-sm font-medium mb-6">
             <Users size={16} />
             Trusted by 500+ customers
@@ -108,7 +109,7 @@ const Testimonials = () => {
             Real stories from real people who trusted us with their precious memories.
             Every portrait tells a story, and here are some of our favorites.
           </p>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Stats Section */}
@@ -130,7 +131,7 @@ const Testimonials = () => {
 
       {/* Featured Testimonial */}
       <section className="py-20 bg-gradient-to-br from-sky-50 to-pink-50">
-        <div className="max-w-4xl mx-auto px-4">
+        <AnimateOnScroll animation="scaleUp" duration={900} className="max-w-4xl mx-auto px-4">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
             {/* Decorative Quote */}
             <Quote size={120} className="absolute -top-4 -left-4 text-pink-100 rotate-180" />
@@ -162,18 +163,18 @@ const Testimonials = () => {
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Testimonials Grid */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <AnimateOnScroll animation="fadeUp" duration={700} className="text-center mb-12">
             <h2 className="text-3xl font-serif text-gray-900 mb-4">More Happy Stories</h2>
             <p className="text-gray-500">Every portrait has a story behind it</p>
-          </div>
+          </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerContainer animation="fadeUp" staggerDelay={100} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t) => (
               <div
                 key={t.id}
@@ -211,7 +212,7 @@ const Testimonials = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 

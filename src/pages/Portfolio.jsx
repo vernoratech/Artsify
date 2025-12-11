@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { ZoomIn, X as CloseIcon, ChevronLeft, ChevronRight } from 'lucide-react'
+import AnimateOnScroll, { StaggerContainer } from '../components/ui/AnimateOnScroll'
 import img24 from '../assets/Artsify-Client-Details/img24.jpg'
 import img5 from '../assets/Artsify-Client-Details/img5.jpg'
 import img20 from '../assets/Artsify-Client-Details/img20.jpg'
