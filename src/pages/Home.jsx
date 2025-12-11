@@ -4,6 +4,7 @@ import MarqueeCarousel from '../components/sections/MarqueeCarousel'
 import GallerySection from '../components/sections/GallerySection'
 import PricingSection from '../components/sections/PricingSection'
 import How_It_Works from '../components/sections/How_It_Works'
+import AboutArtist from '../components/sections/AboutArtist'
 
 const Home = () => (
   <>
@@ -13,6 +14,7 @@ const Home = () => (
     <MarqueeCarousel />
     <How_It_Works />
     <PricingSection />
+    <AboutArtist />
     <GallerySection />
   </>
 )
