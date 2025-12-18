@@ -6,6 +6,8 @@ import PricingSection from '../components/sections/PricingSection'
 import How_It_Works from '../components/sections/How_It_Works'
 import AboutArtist from '../components/sections/AboutArtist'
 import AnimateOnScroll from '../components/ui/AnimateOnScroll'
+import SocialProof from '../components/sections/SocialProof'
+import LatestCreations from '../components/sections/LatestCreations'
 
 const Home = () => (
   <>
@@ -24,12 +26,16 @@ const Home = () => (
       <PricingSection />
     </AnimateOnScroll>
 
+    <AnimateOnScroll animation="fadeUp" duration={800}>
+      <LatestCreations />
+    </AnimateOnScroll>
+
     <AnimateOnScroll animation="fadeUp" duration={900}>
       <AboutArtist />
     </AnimateOnScroll>
 
     <AnimateOnScroll animation="fadeUp" duration={800}>
-      <GallerySection />
+      <SocialProof />
     </AnimateOnScroll>
   </>
 )
