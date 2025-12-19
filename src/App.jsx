@@ -12,6 +12,9 @@ import Contact from './pages/Contact'
 import Testimonials from './pages/Testimonials'
 import FAQ from './pages/FAQ'
 import Blog from './pages/Blog'
+import Terms from './pages/Terms'
+import Privacy from './pages/Privacy'
+import Cookies from './pages/Cookies'
 import CookieConsent from './components/ui/CookieConsent'
 import { MessageCircle } from 'lucide-react'
 import introBg from './assets/inro_bg.png'
@@ -102,6 +105,9 @@ const App = () => {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/cookies" element={<Cookies />} />
           </Routes>
         </div>
       </div>
