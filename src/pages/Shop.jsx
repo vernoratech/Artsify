@@ -335,6 +335,229 @@ const Shop = () => {
         </div>
       </section>
 
+      {/* Featured Products - Large Spotlight */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll animation="fadeUp">
+            <div className="flex items-center justify-between mb-10">
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-xs font-medium mb-3">
+                  ✨ Editor's Pick
+                </span>
+                <h2 className="text-3xl font-serif text-gray-900">
+                  Featured <span className="gradient-text italic">Artworks</span>
+                </h2>
+              </div>
+              {/* <button className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                View All <span>→</span>
+              </button> */}
+            </div>
+          </AnimateOnScroll>
+
+          {/* Large Feature Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {products.filter(p => p.badge === 'Featured' || p.badge === 'Bestseller').slice(0, 2).map((product, index) => (
+              <AnimateOnScroll key={product.id} animation="fadeUp" delay={index * 100}>
+                <div
+                  className="group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  <img
+                    src={product.src}
+                    alt={product.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold text-white mb-3 badge-${product.badge?.toLowerCase()}`}>
+                      {product.badge}
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-serif text-white mb-2">{product.title}</h3>
+                    <p className="text-white/70 text-sm mb-4">{product.tag}</p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl font-bold text-white">₹{product.price}</span>
+                        {product.originalPrice && (
+                          <span className="text-lg text-white/50 line-through">₹{product.originalPrice}</span>
+                        )}
+                      </div>
+                      <button className="px-6 py-2.5 bg-white text-gray-900 text-sm font-medium rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2">
+                        <ShoppingBag className="w-4 h-4" />
+                        Order Now
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Wishlist */}
+                  <button
+                    onClick={(e) => toggleWishlist(e, product.id)}
+                    className={`absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center transition-all ${wishlist.includes(product.id) ? 'bg-red-500 text-white' : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/40'}`}
+                  >
+                    <Heart className={`w-5 h-5 ${wishlist.includes(product.id) ? 'fill-current' : ''}`} />
+                  </button>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* List View Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll animation="fadeUp">
+            <div className="mb-10">
+              <span className="inline-flex items-center gap-2 px-3 py-1 bg-sky-100 text-sky-600 rounded-full text-xs font-medium mb-3">
+                📦 Quick Browse
+              </span>
+              <h2 className="text-3xl font-serif text-gray-900">
+                All <span className="gradient-text italic">Products</span>
+              </h2>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Horizontal List Cards */}
+          <div className="space-y-4">
+            {products.slice(0, 5).map((product, index) => (
+              <AnimateOnScroll key={product.id} animation="fadeUp" delay={index * 50}>
+                <div
+                  className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  <div className="flex flex-col sm:flex-row">
+                    {/* Image */}
+                    <div className="relative w-full sm:w-48 h-48 sm:h-auto flex-shrink-0 overflow-hidden">
+                      <img
+                        src={product.src}
+                        alt={product.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {product.badge && (
+                        <span className={`absolute top-3 left-3 px-2 py-0.5 rounded-full text-[10px] font-semibold text-white badge-${product.badge.toLowerCase()}`}>
+                          {product.badge}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Info */}
+                    <div className="flex-1 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                      <div>
+                        <p className="text-xs text-purple-600 font-medium mb-1">{product.category}</p>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-1">{product.title}</h3>
+                        <p className="text-sm text-gray-500">{product.tag}</p>
+                      </div>
+
+                      <div className="flex items-center gap-6">
+                        <div className="text-right">
+                          <span className="text-xl font-bold text-gray-900">₹{product.price}</span>
+                          {product.originalPrice && (
+                            <p className="text-sm text-gray-400 line-through">₹{product.originalPrice}</p>
+                          )}
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={(e) => toggleWishlist(e, product.id)}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${wishlist.includes(product.id) ? 'bg-red-50 text-red-500' : 'bg-gray-100 text-gray-400 hover:bg-gray-200'}`}
+                          >
+                            <Heart className={`w-5 h-5 ${wishlist.includes(product.id) ? 'fill-current' : ''}`} />
+                          </button>
+                          <button className="px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hot Deals Section */}
+      <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimateOnScroll animation="fadeUp">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-xs font-medium mb-3">
+                  🔥 Limited Time
+                </span>
+                <h2 className="text-3xl font-serif text-white">
+                  Hot <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400 italic">Deals</span>
+                </h2>
+              </div>
+              <div className="mt-4 md:mt-0 flex items-center gap-3 text-white/70">
+                <span className="text-sm">Ends in:</span>
+                <div className="flex gap-2">
+                  <span className="px-3 py-1.5 bg-white/10 rounded-lg text-white font-mono">23</span>
+                  <span>:</span>
+                  <span className="px-3 py-1.5 bg-white/10 rounded-lg text-white font-mono">59</span>
+                  <span>:</span>
+                  <span className="px-3 py-1.5 bg-white/10 rounded-lg text-white font-mono">42</span>
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Compact Deal Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {products.filter(p => p.originalPrice).slice(0, 4).map((product, index) => (
+              <AnimateOnScroll key={product.id} animation="fadeUp" delay={index * 75}>
+                <div
+                  className="group bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden cursor-pointer hover:bg-white/15 transition-all"
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  <div className="relative aspect-square overflow-hidden">
+                    <img
+                      src={product.src}
+                      alt={product.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-2 left-2 px-2 py-1 bg-red-500 text-white text-[10px] font-bold rounded-full">
+                      -{Math.round((1 - product.price / product.originalPrice) * 100)}%
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-white font-medium text-sm truncate mb-2">{product.title}</h3>
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg font-bold text-white">₹{product.price}</span>
+                      <span className="text-sm text-white/50 line-through">₹{product.originalPrice}</span>
+                    </div>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <AnimateOnScroll animation="fadeUp">
+            <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">
+              Can't Find What You're <span className="gradient-text italic">Looking For?</span>
+            </h2>
+            <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
+              Get a custom artwork made just for you. Share your ideas and let's create something unique together!
+            </p>
+            <button className="px-8 py-4 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl">
+              Request Custom Artwork
+            </button>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
       {/* Product Modal */}
       <ProductModal
         product={selectedProduct}
