@@ -26,8 +26,23 @@ const App = () => {
     if (!entryData) return true // No entry, show intro
 
     try {
-      const { timestamp } = JSON.parse(entryData)
-      const entryTime = new Date(timestamp).getTime()
+      const parsed = JSON.parse(entryData)
+
+      // Handle old format (just "true" string which parses to boolean true)
+      // Old users should see the new intro, so clear and show
+      if (typeof parsed !== 'object' || parsed === null || !parsed.timestamp) {
+        localStorage.removeItem('artsifyHasEntered')
+        return true // Old format, show intro
+      }
+
+      const entryTime = new Date(parsed.timestamp).getTime()
+
+      // Check if timestamp is valid
+      if (isNaN(entryTime)) {
+        localStorage.removeItem('artsifyHasEntered')
+        return true // Invalid timestamp, show intro
+      }
+
       const now = new Date().getTime()
       const twentyFourHours = 24 * 60 * 60 * 1000 // 24 hours in milliseconds
 
