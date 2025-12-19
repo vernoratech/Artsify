@@ -14,7 +14,7 @@ const PricingSection = () => {
             <p className="text-4xl font-serif text-gray-800">₹500</p>
           </div>
           <div className="bg-white p-8 rounded-2xl shadow-md border-t-4 border-pink-300 w-full md:w-64 transform md:scale-110">
-            <div className="absolute top-0 right-0 bg-pink-300 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">Popular</div>
+            {/* <div className="absolute top-0 right-0 bg-pink-300 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">Popular</div> */}
             <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mb-2">Couple Portrait</p>
             <p className="text-4xl font-serif text-pink-500">₹700</p>
           </div>
