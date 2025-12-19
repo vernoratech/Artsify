@@ -1,14 +1,195 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/src/assets/main_logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>artsify</title>
-     <!-- <title>Template</title> -->
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <!-- Primary Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO Meta Tags -->
+  <title>Artsify - Custom Portrait Art | Hand-Drawn Portraits & Digital Art</title>
+  <meta name="title" content="Artsify - Custom Portrait Art | Hand-Drawn Portraits & Digital Art" />
+  <meta name="description"
+    content="Transform your cherished memories into stunning hand-drawn portraits. Custom pencil sketches, couple portraits, family art, pet portraits & phone cases. Based in India. Starting ₹500." />
+  <meta name="keywords"
+    content="custom portraits, hand-drawn portraits, pencil sketch, couple portrait, family portrait, pet portrait, custom phone case, portrait artist, India, gift ideas, personalized art, digital art, charcoal drawing, anniversary gift, birthday gift, Artsify" />
+  <meta name="author" content="Artsify" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="rating" content="General" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://artsify.in/" />
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/png" href="/src/assets/main_logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/main_logo.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/main_logo.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/main_logo.png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://artsify.in/" />
+  <meta property="og:title" content="Artsify - Custom Portrait Art | Hand-Drawn Portraits & Digital Art" />
+  <meta property="og:description"
+    content="Transform your cherished memories into stunning hand-drawn portraits. Custom pencil sketches, couple portraits, family art & more. Starting ₹500." />
+  <meta property="og:image" content="https://artsify.in/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Artsify - Custom Portrait Art" />
+  <meta property="og:site_name" content="Artsify" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://artsify.in/" />
+  <meta name="twitter:title" content="Artsify - Custom Portrait Art | Hand-Drawn Portraits" />
+  <meta name="twitter:description"
+    content="Transform your cherished memories into stunning hand-drawn portraits. Custom pencil sketches, couple portraits, family art & more. Starting ₹500." />
+  <meta name="twitter:image" content="https://artsify.in/og-image.jpg" />
+  <meta name="twitter:creator" content="@artsify" />
+
+  <!-- WhatsApp & Messaging -->
+  <meta property="og:image:secure_url" content="https://artsify.in/og-image.jpg" />
+
+  <!-- Theme & App Colors -->
+  <meta name="theme-color" content="#f472b6" />
+  <meta name="msapplication-TileColor" content="#f472b6" />
+  <meta name="msapplication-navbutton-color" content="#f472b6" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- Geographic Tags (India) -->
+  <meta name="geo.region" content="IN" />
+  <meta name="geo.placename" content="India" />
+  <meta name="ICBM" content="20.5937, 78.9629" />
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Structured Data / Schema.org (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Artsify",
+      "image": "https://artsify.in/logo.png",
+      "description": "Custom portrait art studio specializing in hand-drawn pencil sketches, couple portraits, family portraits, pet portraits, and custom phone cases.",
+      "@id": "https://artsify.in/",
+      "url": "https://artsify.in/",
+      "telephone": "+91-9876543210",
+      "email": "artsify.official@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "priceRange": "₹500 - ₹2000",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      "sameAs": [
+        "https://instagram.com/artsify.__",
+        "https://wa.me/919876543210"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "100"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Portrait Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Single Portrait",
+              "description": "Hand-drawn pencil portrait of one person"
+            },
+            "price": "500",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Couple Portrait",
+              "description": "Hand-drawn pencil portrait of two people"
+            },
+            "price": "700",
+            "priceCurrency": "INR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Family Portrait",
+              "description": "Hand-drawn pencil portrait of family"
+            },
+            "price": "1200",
+            "priceCurrency": "INR"
+          }
+        ]
+      }
+    }
+    </script>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Artsify",
+      "url": "https://artsify.in/",
+      "logo": "https://artsify.in/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9876543210",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "sameAs": [
+        "https://instagram.com/artsify.__"
+      ]
+    }
+    </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Artsify",
+      "url": "https://artsify.in/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://artsify.in/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</head>
+
+<body>
+  <!-- Noscript Fallback -->
+  <noscript>
+    <div style="padding: 20px; text-align: center; font-family: sans-serif;">
+      <h1>Artsify - Custom Portrait Art</h1>
+      <p>Please enable JavaScript to view this website.</p>
+      <p>Contact us: artsify.official@gmail.com | WhatsApp: +91 98765 43210</p>
+    </div>
+  </noscript>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
