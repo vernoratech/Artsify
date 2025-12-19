@@ -75,6 +75,11 @@ const App = () => {
     }
   }, [showIntro])
 
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   const handleEnter = () => {
     if (isDismissing) return
     // Store entry with timestamp for 24-hour expiration
