@@ -12,6 +12,7 @@ import Contact from './pages/Contact'
 import Testimonials from './pages/Testimonials'
 import FAQ from './pages/FAQ'
 import Blog from './pages/Blog'
+import CookieConsent from './components/ui/CookieConsent'
 import { MessageCircle } from 'lucide-react'
 import introBg from './assets/Artsify-Client-Details/img24.jpg'
 
@@ -88,6 +89,9 @@ const App = () => {
           </div>
         </div>
       )}
+
+      {/* Cookie Consent Popup */}
+      <CookieConsent />
     </div>
   )
 }
