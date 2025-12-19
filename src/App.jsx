@@ -97,10 +97,11 @@ const App = () => {
         <div
           className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-700 ease-out ${isDismissing ? 'opacity-0' : 'opacity-100'}`}
         >
-          {/* Background Image with Ken Burns effect */}
+          {/* Background Image with Ken Burns effect + Fallback Gradient */}
           <div
             className="absolute inset-0 transition-transform duration-[2000ms] ease-out"
             style={{
+              background: 'linear-gradient(135deg, #0c1929 0%, #1e293b 30%, #1a1a2e 50%, #16213e 70%, #0f0f23 100%)',
               backgroundImage: `url(${introBg})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center center',
