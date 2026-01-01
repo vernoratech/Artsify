@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { Heart, Eye, Sparkles, Palette, ZoomIn, X, ChevronLeft, ChevronRight, Camera, Users, Award, ArrowRight } from 'lucide-react'
+import { Heart, Eye, Sparkles, Palette, ZoomIn, X, ChevronLeft, ChevronRight, Camera, Users, Award, ArrowRight, Smartphone } from 'lucide-react'
+import { MdFamilyRestroom } from "react-icons/md";
 import AnimateOnScroll from '../components/ui/AnimateOnScroll'
 import { useNavigate } from 'react-router-dom'
 
@@ -30,6 +31,16 @@ import img22 from '../assets/Artsify-Client-Details/img22.jpg'
 import img23 from '../assets/Artsify-Client-Details/img23.jpg'
 import img24 from '../assets/Artsify-Client-Details/img24.jpg'
 import img25 from '../assets/Artsify-Client-Details/img25.jpg'
+import img26 from '../assets/Artsify-Client-Details/img26.jpg'
+import img27 from '../assets/Artsify-Client-Details/img27.jpg'
+import img28 from '../assets/Artsify-Client-Details/img28.jpg'
+import img29 from '../assets/Artsify-Client-Details/img29.jpg'
+import img30 from '../assets/Artsify-Client-Details/img30.jpg'
+import img31 from '../assets/Artsify-Client-Details/img31.jpeg'
+import img32 from '../assets/Artsify-Client-Details/img32.jpeg'
+import img33 from '../assets/Artsify-Client-Details/img33.jpeg'
+
+
 
 const Gallery = () => {
   const navigate = useNavigate()
@@ -50,35 +61,47 @@ const Gallery = () => {
     { id: 'portraits', label: 'Portraits', icon: Palette },
     { id: 'couple', label: 'Couple Art', icon: Heart },
     { id: 'sketches', label: 'Sketches', icon: Eye },
+    { id: 'phonecovers', label: 'Phone Covers', icon: Smartphone },
+    { id: 'family', label: 'Family', icon: MdFamilyRestroom },
   ]
 
-  const galleryItems = [
-    { id: 1, src: img1, title: 'Eternal Grace', category: 'portraits', size: 'normal', views: 1234 },
-    { id: 10, src: img10, title: 'Golden Moments', category: 'couple', size: 'wide', views: 2341 },
-    { id: 12, src: img12, title: 'Timeless Beauty', category: 'portraits', size: 'tall', views: 892 },
-    { id: 16, src: img16, title: 'Together Forever', category: 'couple', size: 'normal', views: 567 },
-    { id: 2, src: img2, title: 'Quiet Reflection', category: 'sketches', size: 'normal', views: 1876 },
-    { id: 13, src: img13, title: 'Dreamy Essence', category: 'portraits', size: 'tall', views: 432 },
-    { id: 17, src: img17, title: 'Love Story', category: 'couple', size: 'normal', views: 3421 },
-    { id: 3, src: img3, title: 'Pencil Dreams', category: 'sketches', size: 'normal', views: 789 },
-    { id: 6, src: img6, title: 'Graceful Lines', category: 'sketches', size: 'tall', views: 1123 },
-    { id: 21, src: img21, title: 'Radiant Soul', category: 'portraits', size: 'wide', views: 2145 },
-    { id: 4, src: img4, title: 'Soft Shadows', category: 'sketches', size: 'normal', views: 654 },
-    { id: 14, src: img14, title: 'Mystic Eyes', category: 'portraits', size: 'tall', views: 987 },
-    { id: 23, src: img23, title: 'Cherished Bond', category: 'couple', size: 'normal', views: 1567 },
-    { id: 5, src: img5, title: 'Abstract Mind', category: 'sketches', size: 'normal', views: 823 },
-    { id: 19, src: img19, title: 'Soulful Gaze', category: 'portraits', size: 'tall', views: 2890 },
-    { id: 24, src: img24, title: 'Harmony', category: 'couple', size: 'normal', views: 1234 },
-    { id: 7, src: img7, title: 'Quick Sketch', category: 'sketches', size: 'normal', views: 456 },
-    { id: 11, src: img11, title: 'Portrait Study', category: 'portraits', size: 'tall', views: 678 },
-    { id: 25, src: img25, title: 'Forever Yours', category: 'couple', size: 'wide', views: 1987 },
-    { id: 8, src: img8, title: 'Character Art', category: 'sketches', size: 'normal', views: 345 },
-    { id: 15, src: img15, title: 'Elegant Pose', category: 'portraits', size: 'tall', views: 1456 },
-    { id: 9, src: img9, title: 'Vertical Dreams', category: 'sketches', size: 'tall', views: 567 },
-    { id: 20, src: img20, title: 'Deep Thoughts', category: 'portraits', size: 'tall', views: 2345 },
-    { id: 18, src: img18, title: 'Soft Portrait', category: 'portraits', size: 'tall', views: 890 },
-    { id: 22, src: img22, title: 'Captured Moment', category: 'couple', size: 'tall', views: 1678 },
-  ]
+const galleryItems = [
+  { id: 1, src: img1, title: 'Whisper of Elegance', category: 'couple', size: 'normal', views: 1234 },
+  { id: 10, src: img10, title: 'Moments in Gold', category: 'portraits', size: 'wide', views: 2341 },
+  { id: 12, src: img12, title: 'Classic Charm', category: 'phonecovers', size: 'tall', views: 892 },
+  { id: 16, src: img16, title: 'Bound by Love', category: 'sketches', size: 'normal', views: 567 },
+  { id: 2, src: img2, title: 'Silent Contemplation', category: 'portraits', size: 'normal', views: 1876 },
+  { id: 13, src: img13, title: 'Soft Daydream', category: 'phonecovers', size: 'tall', views: 432 },
+  { id: 17, src: img17, title: 'A Shared Journey', category: 'sketches', size: 'normal', views: 3421 },
+  { id: 3, src: img3, title: 'Lines of Emotion', category: 'portraits', size: 'normal', views: 789 },
+  { id: 6, src: img6, title: 'Flowing Expressions', category: 'portraits', size: 'tall', views: 1123 },
+  { id: 21, src: img21, title: 'Inner Radiance', category: 'portraits', size: 'wide', views: 2145 },
+  { id: 4, src: img4, title: 'Shaded Serenity', category: 'portraits', size: 'normal', views: 654 },
+  { id: 14, src: img14, title: 'Eyes That Speak', category: 'portraits', size: 'tall', views: 987 },
+  { id: 23, src: img23, title: 'A Precious Bond', category: 'sketches', size: 'normal', views: 1567 },
+  { id: 5, src: img5, title: 'Thoughts in Form', category: 'portraits', size: 'normal', views: 823 },
+  { id: 19, src: img19, title: 'Depth of the Soul', category: 'portraits', size: 'tall', views: 2890 },
+  { id: 24, src: img24, title: 'Balanced Beauty', category: 'portraits', size: 'normal', views: 1234 },
+  { id: 7, src: img7, title: 'Sketch in Motion', category: 'portraits', size: 'normal', views: 456 },
+  { id: 11, src: img11, title: 'Study of Stillness', category: 'sketches', size: 'tall', views: 678 },
+  { id: 25, src: img25, title: 'Promise Forever', category: 'portraits', size: 'wide', views: 1987 },
+  { id: 8, src: img8, title: 'Character Essence', category: 'portraits', size: 'normal', views: 345 },
+  { id: 15, src: img15, title: 'Poise & Grace', category: 'portraits', size: 'tall', views: 1456 },
+  { id: 9, src: img9, title: 'Upright Impressions', category: 'phonecovers', size: 'tall', views: 567 },
+  { id: 20, src: img20, title: 'Lost in Thought', category: 'sketches', size: 'tall', views: 2345 },
+  { id: 18, src: img18, title: 'Tender Silence', category: 'couple', size: 'tall', views: 890 },
+  { id: 22, src: img22, title: 'Frozen in Time', category: 'portraits', size: 'tall', views: 1678 },
+  { id: 26, src: img26, title: 'Unspoken Affection', category: 'couple', size: 'tall', views: 2500 },
+  { id: 27, src: img27, title: 'Roots of Togetherness', category: 'couple', size: 'wide', views: 1750 },
+  { id: 28, src: img28, title: 'Through the Years', category: 'couple', size: 'normal', views: 980 },
+  { id: 29, src: img29, title: 'Family in Frame', category: 'family', size: 'tall', views: 1340 },
+  { id: 30, src: img30, title: 'Ties That Remain', category: 'family', size: 'tall', views: 1340 },
+  { id: 31, src: img31, title: 'Quiet Expression', category: 'portraits', size: 'tall', views: 1340 },
+  { id: 32, src: img32, title: 'Light Within', category: 'portraits', size: 'tall', views: 1340 },
+  { id: 33, src: img33, title: 'Unspoken Depth', category: 'portraits', size: 'normal', views: 1340 },
+
+];
+
 
   const filteredItems = activeCategory === 'all'
     ? galleryItems
@@ -141,10 +164,10 @@ const Gallery = () => {
 
   // Stats
   const stats = [
-    { icon: Camera, value: '25+', label: 'Artworks' },
-    { icon: Users, value: '100+', label: 'Happy Clients' },
-    { icon: Award, value: '4', label: 'Categories' },
-    { icon: Heart, value: '5K+', label: 'Likes' },
+    { icon: Camera, value: '50+', label: 'Artworks' },
+    { icon: Users, value: '50+', label: 'Happy Clients' },
+    { icon: Award, value: '5', label: 'Categories' },
+    { icon: Heart, value: '500+', label: 'Likes' },
   ]
 
   return (
@@ -388,10 +411,10 @@ const Gallery = () => {
               <AnimateOnScroll animation="fadeUp" delay={100}>
                 <div
                   className="group relative h-[238px] rounded-2xl overflow-hidden shadow-xl cursor-pointer"
-                  onClick={() => openLightbox(galleryItems[6])}
+                  onClick={() => openLightbox(galleryItems[26])}
                 >
                   <img
-                    src={img17}
+                    src={img27}
                     alt="Love Story"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -405,10 +428,10 @@ const Gallery = () => {
               <AnimateOnScroll animation="fadeUp" delay={200}>
                 <div
                   className="group relative h-[238px] rounded-2xl overflow-hidden shadow-xl cursor-pointer"
-                  onClick={() => openLightbox(galleryItems[9])}
+                  onClick={() => openLightbox(galleryItems[24])}
                 >
                   <img
-                    src={img21}
+                    src={img22}
                     alt="Radiant Soul"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -561,9 +584,9 @@ const Gallery = () => {
             <AnimateOnScroll animation="fadeUp" className="col-span-2 row-span-2">
               <div
                 className="group relative h-full rounded-3xl overflow-hidden shadow-lg cursor-pointer"
-                onClick={() => openLightbox(galleryItems[1])}
+                onClick={() => openLightbox(galleryItems[0])}
               >
-                <img src={img10} alt="Golden Moments" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={img1} alt="Golden Moments" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <h3 className="text-xl font-serif text-white">Golden Moments</h3>
@@ -575,9 +598,9 @@ const Gallery = () => {
             <AnimateOnScroll animation="fadeUp" delay={50}>
               <div
                 className="group relative h-full rounded-2xl overflow-hidden shadow-lg cursor-pointer"
-                onClick={() => openLightbox(galleryItems[3])}
+                onClick={() => openLightbox(galleryItems[23])}
               >
-                <img src={img16} alt="Together Forever" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={img18} alt="Together Forever" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <ZoomIn className="text-white" size={24} />
                 </div>
@@ -587,9 +610,9 @@ const Gallery = () => {
             <AnimateOnScroll animation="fadeUp" delay={100}>
               <div
                 className="group relative h-full rounded-2xl overflow-hidden shadow-lg cursor-pointer"
-                onClick={() => openLightbox(galleryItems[12])}
+                onClick={() => openLightbox(galleryItems[25])}
               >
-                <img src={img23} alt="Cherished Bond" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={img26} alt="Cherished Bond" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <ZoomIn className="text-white" size={24} />
                 </div>
@@ -599,9 +622,9 @@ const Gallery = () => {
             <AnimateOnScroll animation="fadeUp" delay={150}>
               <div
                 className="group relative h-full rounded-2xl overflow-hidden shadow-lg cursor-pointer"
-                onClick={() => openLightbox(galleryItems[15])}
+                onClick={() => openLightbox(galleryItems[26])}
               >
-                <img src={img24} alt="Harmony" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={img27} alt="Harmony" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <ZoomIn className="text-white" size={24} />
                 </div>
@@ -611,9 +634,9 @@ const Gallery = () => {
             <AnimateOnScroll animation="fadeUp" delay={200}>
               <div
                 className="group relative h-full rounded-2xl overflow-hidden shadow-lg cursor-pointer"
-                onClick={() => openLightbox(galleryItems[18])}
+                onClick={() => openLightbox(galleryItems[27])}
               >
-                <img src={img25} alt="Forever Yours" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={img28} alt="Forever Yours" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <ZoomIn className="text-white" size={24} />
                 </div>
@@ -621,19 +644,19 @@ const Gallery = () => {
             </AnimateOnScroll>
 
             {/* Wide */}
-            <AnimateOnScroll animation="fadeUp" delay={250} className="col-span-2">
+            {/* <AnimateOnScroll animation="fadeUp" delay={250} className="col-span-2">
               <div
                 className="group relative h-full rounded-2xl overflow-hidden shadow-lg cursor-pointer"
-                onClick={() => openLightbox(galleryItems[24])}
+                onClick={() => openLightbox(galleryItems[8])}
               >
-                <img src={img22} alt="Captured Moment" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={img6} alt="Captured Moment" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <h3 className="text-lg font-serif text-white">Captured Moment</h3>
                   <p className="text-white/70 text-sm">A beautiful couple portrait</p>
                 </div>
               </div>
-            </AnimateOnScroll>
+            </AnimateOnScroll> */}
           </div>
         </div>
       </section>

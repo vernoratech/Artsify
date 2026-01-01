@@ -69,7 +69,7 @@ const SocialProof = () => {
                             ))}
                         </div>
                         <a
-                            href="https://instagram.com"
+                            href="https://www.instagram.com/artsify.__/"
                             target="_blank"
                             rel="noreferrer"
                             className="mt-6 w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-lg shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2"

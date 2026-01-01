@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { ChevronDown, Search, HelpCircle, Package, CreditCard, Truck, Palette, Clock, MessageCircle, Sparkles } from 'lucide-react'
+import { ChevronDown, Search, HelpCircle, Package, CreditCard, Truck, Palette, Clock, Sparkles } from 'lucide-react'
 import AnimateOnScroll from '../components/ui/AnimateOnScroll'
 import { useNavigate } from 'react-router-dom'
+import { FaWhatsapp } from "react-icons/fa";
 
 const FAQ = () => {
   const navigate = useNavigate()
@@ -86,7 +87,7 @@ const FAQ = () => {
       id: 11,
       category: 'artwork',
       question: "What mediums do you work with?",
-      answer: "We specialize in graphite pencil, charcoal, and colored pencil on high-quality art paper. We also offer digital art and mixed media options for special requests."
+      answer: "We offer pencil and charcoal medium for portraits and custom sketches, and acrylic colors for custom phone covers. We will be offering fabric painting soon."
     },
     {
       id: 12,
@@ -263,7 +264,7 @@ const FAQ = () => {
             </AnimateOnScroll>
             <AnimateOnScroll animation="fadeUp" delay={75}>
               <div>
-                <p className="text-3xl font-bold text-gray-900">100+</p>
+                <p className="text-3xl font-bold text-gray-900">50+</p>
                 <p className="text-sm text-gray-500">Happy Clients</p>
               </div>
             </AnimateOnScroll>
@@ -304,12 +305,12 @@ const FAQ = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/+918446060142"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 text-white font-medium rounded-full hover:bg-green-600 transition-all shadow-lg hover:shadow-xl"
               >
-                <MessageCircle size={20} />
+                < FaWhatsapp size={30} />
                 Chat on WhatsApp
               </a>
               <button

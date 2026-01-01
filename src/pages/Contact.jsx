@@ -1,10 +1,61 @@
 import React, { useState } from 'react'
-import { Instagram, MessageCircle, Mail, Phone, Clock, ChevronDown, Sparkles, Heart } from 'lucide-react'
+import { Instagram, Mail, ChevronDown, Sparkles, Heart } from 'lucide-react'
 import AnimateOnScroll from '../components/ui/AnimateOnScroll'
+import { FaWhatsapp } from "react-icons/fa"
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [openFaq, setOpenFaq] = useState(null)
+  const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone:'',
+    interest: '',
+    message: '',
+  })
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setLoading(true)
+
+    emailjs
+      .send(
+        'service_6ngilwp',     // 🔴 replace
+        'template_on2dsob',    // 🔴 replace
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          interest: formData.interest,
+          message: formData.message,
+        },
+        'kTMobhLTwJh8biKQ2'      // 🔴 replace
+      )
+      .then(() => {
+        setSuccess(true)
+        setLoading(false)
+        setFormData({
+          name: '',
+          email: '',
+          phone:'',
+          interest: '',
+          message: '',
+        })
+
+        setTimeout(() => setSuccess(false), 4000)
+      })
+      .catch(() => {
+        setLoading(false)
+        alert('Something went wrong. Please try again.')
+      })
+  }
 
   const faqs = [
     {
@@ -31,11 +82,11 @@ const Contact = () => {
 
   const quickContactCards = [
     {
-      icon: MessageCircle,
+      icon: FaWhatsapp,
       title: "WhatsApp",
       subtitle: "Quick replies",
       action: "Chat Now",
-      href: "https://wa.me/919876543210",
+      href: "https://wa.me/+918446060142",
       color: "bg-green-500",
       hoverColor: "hover:bg-green-600"
     },
@@ -44,7 +95,7 @@ const Contact = () => {
       title: "Email",
       subtitle: "Detailed inquiries",
       action: "Send Email",
-      href: "mailto:artsify.official@gmail.com",
+      href: "mailto:artsify98@gmail.com",
       color: "bg-pink-500",
       hoverColor: "hover:bg-pink-600"
     },
@@ -53,7 +104,7 @@ const Contact = () => {
       title: "Instagram",
       subtitle: "See our work",
       action: "Follow Us",
-      href: "https://instagram.com/artsify",
+      href: "https://www.instagram.com/artsify.__/#",
       color: "bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400",
       hoverColor: "hover:opacity-90"
     }
@@ -90,7 +141,7 @@ const Contact = () => {
                   <p className="text-sm text-gray-500">Response Time</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-3xl font-bold text-gray-900">100+</p>
+                  <p className="text-3xl font-bold text-gray-900">50+</p>
                   <p className="text-sm text-gray-500">Happy Clients</p>
                 </div>
                 <div className="text-center">
@@ -141,50 +192,85 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             {/* Left Side - Form */}
             <AnimateOnScroll animation="fadeRight" duration={800} className="order-2 md:order-1">
-              <form className="space-y-10">
+              <form className="space-y-10" onSubmit={handleSubmit}>
                 <div className="relative">
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Your name"
+                    required
                     className="w-full py-3 bg-transparent border-b border-gray-300 text-gray-800 focus:border-black focus:outline-none transition-colors placeholder-gray-400 font-serif"
                   />
                 </div>
                 <div className="relative">
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="Your email"
+                    required
+                    className="w-full py-3 bg-transparent border-b border-gray-300 text-gray-800 focus:border-black focus:outline-none transition-colors placeholder-gray-400 font-serif"
+                  />
+                </div>
+                <div className="relative">
+                  <input
+                    type="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Your Phone"
+                    required
                     className="w-full py-3 bg-transparent border-b border-gray-300 text-gray-800 focus:border-black focus:outline-none transition-colors placeholder-gray-400 font-serif"
                   />
                 </div>
                 <div className="relative">
                   <select
+                    name="interest"
+                    value={formData.interest}
+                    onChange={handleChange}
+                    required
                     className="w-full py-3 bg-transparent border-b border-gray-300 text-gray-800 focus:border-black focus:outline-none transition-colors font-serif cursor-pointer appearance-none"
                     defaultValue=""
                   >
                     <option value="" disabled>What are you interested in?</option>
-                    <option value="Portrait">Single Portrait</option>
-                    <option value="Couple">Couple Portrait</option>
-                    <option value="Family">Family Portrait</option>
-                    <option value="Pet">Pet Portrait</option>
-                    <option value="Phone Case">Custom Phone Case</option>
-                    <option value="Other">Something Else</option>
+                    <option>Single Portrait</option>
+                    <option>Couple Portrait</option>
+                    <option>Family Portrait</option>
+                    <option>Pet Portrait</option>
+                    <option>Custom Phone Case</option>
+                    <option>Something Else</option>
                   </select>
                   <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
                 </div>
                 <div className="relative">
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows="3"
                     placeholder="Your message"
+                    required
                     className="w-full py-3 bg-transparent border-b border-gray-300 text-gray-800 focus:border-black focus:outline-none transition-colors resize-none placeholder-gray-400 font-serif"
                   ></textarea>
                 </div>
 
                 <button
-                  type="button"
+                  type="submit"
+                  disabled={loading}
                   className="w-full md:w-auto px-12 py-3 bg-black text-white font-serif tracking-wide hover:bg-gray-800 transition-colors duration-300 shadow-lg"
                 >
-                  Send
+                  {loading ? 'Sending...' : 'Send'}
                 </button>
+                {success && (
+                  <div className="w-full mb-6 px-4 py-4 rounded-2xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-300 text-green-800 shadow-sm">
+                    🎉 Thanks! Your request has been successfully sent.
+                  </div>
+                )}
+
+
               </form>
             </AnimateOnScroll>
 
@@ -213,20 +299,20 @@ const Contact = () => {
                 </div>
 
                 <div className="flex flex-col items-center md:items-end space-y-2 text-gray-600">
-                  <a href="mailto:artsify.official@gmail.com" className="hover:text-pink-500 transition-colors">
-                    artsify.official@gmail.com
+                  <a href="mailto:artsify.artsify98@gmail.com" className="hover:text-pink-500 transition-colors">
+                    artsify98@gmail.com
                   </a>
-                  <a href="tel:+919876543210" className="hover:text-pink-500 transition-colors">
-                    +91 98765 43210
+                  <a href="tel:+91 8446060142" className="hover:text-pink-500 transition-colors">
+                    +91 8446060142
                   </a>
                 </div>
 
                 <div className="flex justify-center md:justify-end space-x-6 pt-2">
-                  <a href="#" className="text-gray-400 hover:text-pink-500 transition-colors">
+                  <a href="https://www.instagram.com/artsify.__/#" className="text-gray-400 hover:text-pink-500 transition-colors">
                     <Instagram size={24} />
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-green-500 transition-colors">
-                    <MessageCircle size={24} />
+                  <a href="https://wa.me/+918446060142" className="text-gray-400 hover:text-green-500 transition-colors">
+                    < FaWhatsapp size={24} />
                   </a>
                 </div>
               </div>
@@ -234,6 +320,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+
 
       {/* FAQ Section */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -291,12 +379,12 @@ const Contact = () => {
               Let's turn your favorite memories into stunning artwork that lasts forever.
             </p>
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/+918446060142"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 text-white font-medium rounded-full hover:bg-green-600 transition-all shadow-lg hover:shadow-xl"
             >
-              <MessageCircle size={20} />
+              < FaWhatsapp size={30} />
               Start a Conversation on WhatsApp
             </a>
           </AnimateOnScroll>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { FaWhatsapp } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 import {
   Instagram,
-  MessageCircle,
   Mail,
   Phone,
   MapPin,
@@ -12,6 +12,9 @@ import {
   Sparkles,
   ArrowUpRight
 } from 'lucide-react'
+import logo from '../../../assets/Artsify-Client-Details/Logo1.jpeg';
+
+// import {logo} from 'D:/Artify Project/Artsify/src/assets/Artsify-Client-Details/Logo.jpg'
 
 const Footer = () => {
   const [email, setEmail] = useState('')
@@ -44,7 +47,7 @@ const Footer = () => {
     { name: 'FAQs', path: '/faq' },
     { name: 'Contact Us', path: '/contact' },
     { name: 'Testimonials', path: '/testimonials' },
-    { name: 'Blog', path: '/blog' },
+    // { name: 'Blog', path: '/blog' },
   ]
 
   return (
@@ -66,9 +69,14 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-flex items-center gap-2 group mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:shadow-pink-500/25 transition-shadow">
-                <Palette size={20} className="text-white" />
+              <div className="w-10 h-10 rounded-xl /*bg-gradient-to-br from-pink-500 to-purple-600 */flex items-center justify-center shadow-lg group-hover:shadow-pink-500/25 transition-shadow">
+                <img
+                  src={logo}
+                  alt="Logo"
+                  className="w-20 h-10 rounded-full object-cover bg-white p-0.5"
+                />
               </div>
+
               <h3 className="text-3xl font-serif">
                 Arts<span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-pink-600">ify</span>
               </h3>
@@ -80,22 +88,22 @@ const Footer = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="mailto:hello@artsify.com"
+                href="mailto:artsify98@gmail.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-pink-400 transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-gray-800/50 flex items-center justify-center group-hover:bg-pink-500/20 transition-colors">
                   <Mail size={14} />
                 </div>
-                <span className="text-sm">hello@artsify.com</span>
+                <span className="text-sm">artsify98@gmail.com</span>
               </a>
               <a
-                href="tel:+1234567890"
+                href="tel:+91 8446060142"
                 className="flex items-center gap-3 text-gray-400 hover:text-pink-400 transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-gray-800/50 flex items-center justify-center group-hover:bg-pink-500/20 transition-colors">
                   <Phone size={14} />
                 </div>
-                <span className="text-sm">+91 98765 43210</span>
+                <span className="text-sm">+91 84460 60142</span>
               </a>
               <div className="flex items-center gap-3 text-gray-400">
                 <div className="w-8 h-8 rounded-lg bg-gray-800/50 flex items-center justify-center">
@@ -195,17 +203,17 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://wa.me/"
+                href="https://wa.me/+918446060142"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative w-11 h-11 rounded-xl bg-gray-800/50 flex items-center justify-center overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <MessageCircle size={18} className="relative z-10 text-gray-400 group-hover:text-white transition-colors" />
+                <FaWhatsapp size={18} className="relative z-10 text-gray-400 group-hover:text-white transition-colors" />
               </a>
 
               <a
-                href="mailto:hello@artsify.com"
+                href="mailto:artsify98@gmail.com"
                 className="group relative w-11 h-11 rounded-xl bg-gray-800/50 flex items-center justify-center overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-sky-500/25"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-sky-400 to-sky-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -223,7 +231,7 @@ const Footer = () => {
             <p className="text-gray-500 text-sm flex items-center gap-1">
               &copy; {new Date().getFullYear()} Artsify. Made with
               <Heart size={14} className="text-pink-500 fill-pink-500 mx-1 animate-pulse" />
-              in India
+              in India <span> ~Developed By <a href="https://www.vernoratech.in/" target='_blank'><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-500 fa-bold">Vernora</span><span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-300 fa-bold">Tech</span></a></span>
             </p>
             <div className="flex items-center gap-6 text-sm text-gray-500">
               <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>

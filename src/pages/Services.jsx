@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import { Palette, Users, Heart, Phone, Camera, Package, Clock, CheckCircle, ArrowRight, Sparkles, Star, MessageCircle } from 'lucide-react'
+import { Palette, Users, Heart, Smartphone, Camera, Package, Clock, CheckCircle, ArrowRight, Sparkles, Star } from 'lucide-react'
 import AnimateOnScroll from '../components/ui/AnimateOnScroll'
 import { useNavigate } from 'react-router-dom'
+import { FaWhatsapp } from "react-icons/fa";
 
 // Import sample images
 import img1 from '../assets/Artsify-Client-Details/img1.jpg'
-import img2 from '../assets/Artsify-Client-Details/img2.jpg'
+import img30 from '../assets/Artsify-Client-Details/img30.jpg'
 import img3 from '../assets/Artsify-Client-Details/img3.jpg'
-import img5 from '../assets/Artsify-Client-Details/img5.jpg'
+import img9 from '../assets/Artsify-Client-Details/img9.jpg'
 import img8 from '../assets/Artsify-Client-Details/img8.jpg'
 import img19 from '../assets/Artsify-Client-Details/img19.jpg'
 
@@ -43,17 +44,17 @@ const Services = () => {
       description: "Bring your whole family together in one timeless artwork. A perfect way to preserve precious memories.",
       price: "₹1200",
       duration: "14-21 days",
-      image: img2,
+      image: img30,
       features: ["A2/A1 size options", "Multiple subjects", "Custom compositions", "2 revisions included"]
     },
     {
       id: 4,
-      icon: Phone,
-      title: "Custom Phone Cases",
+      icon: Smartphone,
+      title: " Phone Cases",
       description: "Carry your art everywhere! Get your portrait or design on a premium quality phone case.",
       price: "₹400",
       duration: "5-7 days",
-      image: img5,
+      image: img9,
       features: ["Hard shell case", "Vivid print quality", "All phone models", "Protective coating"]
     },
     {
@@ -83,7 +84,7 @@ const Services = () => {
       step: 1,
       title: "Share Your Vision",
       description: "Send us your reference photo and tell us about your requirements via WhatsApp or email.",
-      icon: MessageCircle
+      icon: FaWhatsapp
     },
     {
       step: 2,
@@ -137,7 +138,7 @@ const Services = () => {
               {/* Quick Stats */}
               <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 <div className="text-center">
-                  <p className="text-3xl font-bold text-gray-900">100+</p>
+                  <p className="text-3xl font-bold text-gray-900">50+</p>
                   <p className="text-sm text-gray-500">Happy Clients</p>
                 </div>
                 <div className="text-center">
@@ -275,12 +276,12 @@ const Services = () => {
 
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a
-                      href="https://wa.me/919876543210"
+                      href="https://wa.me/+918446060142"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 py-3 bg-green-500 text-white font-medium rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
                     >
-                      <MessageCircle size={18} />
+                      < FaWhatsapp size={30} />
                       Order on WhatsApp
                     </a>
                     <button
@@ -379,12 +380,12 @@ const Services = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/+918446060142"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 text-white font-medium rounded-full hover:bg-green-600 transition-all shadow-lg hover:shadow-xl"
               >
-                <MessageCircle size={20} />
+                < FaWhatsapp size={30} />
                 Chat on WhatsApp
               </a>
               <button

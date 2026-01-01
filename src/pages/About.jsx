@@ -56,7 +56,7 @@ const About = () => {
 
               <video
                 ref={videoRef}
-                src="https://res.cloudinary.com/ddo1qupzg/video/upload/v1765253903/about_section_clip_fnhv83.mp4"
+                src="https://res.cloudinary.com/dj1fxrmef/video/upload/v1767250949/get_zlurqc.mp4"
                 autoPlay
                 muted
                 playsInline
@@ -95,14 +95,16 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-gray-600 text-base sm:text-lg leading-relaxed font-light">
               <p>
-                Welcome to <strong>Artsify</strong>. What began as a simple passion for capturing human emotion on paper has blossomed into a dedicated studio for custom artistry.
+                Welcome to <strong>Artsify</strong>. Artsify began as a simple passion for capturing human emotions on paper. From school days and early drawing classes to discovering a deep love for realistic portrait sketching, each pencil stroke became a way to tell a personal story.
               </p>
+
+              <p>During the lockdown years, dedicated practice and constant family support helped refine this craft. Starting with sketches of loved ones, feedback-driven improvements, and even free artworks, Artsify slowly grew through genuine appreciation and word-of-mouth orders.</p>
               <p>
-                My journey started with a fascination for realistic portraits—the way a single pencil stroke can reveal a smile or a spark in the eye. Today, I specialize in <span className="font-medium text-gray-800">realistic pencil & charcoal sketches</span> and vibrant <span className="font-medium text-gray-800">acrylic phone case art</span>.
+                The journey turned into a brand in <span className="font-medium text-gray-800">2025,</span> specialize in <span className="font-medium text-gray-800">realistic pencil & charcoal sketches</span> and vibrant <span className="font-medium text-gray-800">customized acrylic phone case art.</span> Today, Artsify creates meaningful, timeless artworks and continues to explore new forms like fabric painting to bring creativity closer to everyday life.
               </p>
-              <p>
+              {/* <p>
                 Whether it's a memory of a loved one or a unique gift for a special occasion, my goal is to create something that feels personal, timeless, and truly yours.
-              </p>
+              </p> */}
             </div>
             <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
               <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto sm:mx-0">
@@ -110,7 +112,7 @@ const About = () => {
               </div>
               <div>
                 <p className="text-xs sm:text-sm text-gray-500 uppercase tracking-[0.2em]">Artist & Founder</p>
-                <p className="font-serif text-lg sm:text-xl text-gray-900">Artsify Studio</p>
+                <p className="font-serif text-lg sm:text-xl text-gray-900">Aditi Patil</p>
               </div>
             </div>
           </div>
@@ -144,7 +146,7 @@ const About = () => {
             {/* Item 1 */}
             <div className="relative md:grid md:grid-cols-2 md:gap-12 md:items-center bg-white rounded-xl shadow-sm md:shadow-none md:bg-transparent p-5 md:p-0">
               <div className="md:text-right">
-                <span className="text-sky-500 font-bold tracking-wider text-xs sm:text-sm">2020</span>
+                <span className="text-sky-500 font-bold tracking-wider text-xs sm:text-sm">2017</span>
                 <h4 className="text-lg sm:text-xl font-serif text-gray-900 mt-1">The Spark</h4>
                 <p className="text-gray-500 mt-2 text-sm">Started sketching as a hobby, realizing the power of handmade art.</p>
               </div>
@@ -166,7 +168,7 @@ const About = () => {
             {/* Item 3 */}
             <div className="relative md:grid md:grid-cols-2 md:gap-12 md:items-center bg-white rounded-xl shadow-sm md:shadow-none md:bg-transparent p-5 md:p-0">
               <div className="md:text-right">
-                <span className="text-sky-500 font-bold tracking-wider text-xs sm:text-sm">2024</span>
+                <span className="text-sky-500 font-bold tracking-wider text-xs sm:text-sm">2025</span>
                 <h4 className="text-lg sm:text-xl font-serif text-gray-900 mt-1">Artsify Established</h4>
                 <p className="text-gray-500 mt-2 text-sm">Officially launched the brand to share joy through art with a wider audience.</p>
               </div>

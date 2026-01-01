@@ -21,7 +21,7 @@ const AboutArtist = () => {
                  {/* <PenTool className="text-gray-300 w-24 h-24 opacity-50" />
                  <span className="absolute bottom-4 text-gray-400 font-serif italic">Artist at Work</span>
                   */}
-                  <img src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="" className="w-full h-full object-cover rounded-2xl" />
+                  <img src="https://res.cloudinary.com/dj1fxrmef/image/upload/v1767250359/AditiPatilGBG_fjrwkg_tisoph.jpg" alt="" className="w-full h-full object-cover rounded-2xl" />
               </div>
            </div>
         </div>

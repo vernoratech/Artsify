@@ -103,9 +103,9 @@ Our total liability shall not exceed the amount paid for the specific order in q
             title: "10. Contact Information",
             content: `For questions about these Terms of Service, please contact us:
 
-Email: artsify.official@gmail.com
-WhatsApp: +91 98765 43210
-Website: www.artsify.com
+Email: artsify98@gmail.com
+WhatsApp: +91 8446060142
+Website: www.artsify.in
 
 We typically respond within 24 hours on business days.`
         }

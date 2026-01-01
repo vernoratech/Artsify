@@ -40,7 +40,7 @@ const Home = () => (
     </AnimateOnScroll>
 
     {/* Excalidraw Canvas Section - Iframe Embed (Stable) */}
-    <section className="py-16 bg-gray-50">
+    {/* <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-pink-100 text-pink-600 rounded-full text-sm font-medium mb-4">
@@ -68,7 +68,7 @@ const Home = () => (
           Powered by Excalidraw • Your drawings are private and not saved
         </p>
       </div>
-    </section>
+    </section> */}
 
   </>
 )

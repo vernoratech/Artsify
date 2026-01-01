@@ -20,20 +20,20 @@ import img25 from '../../assets/Artsify-Client-Details/img25.jpg'
 const MarqueeCarousel = () => {
   // Use square images for clean marquee display
   const marqueeImages = [
-    { id: 1, src: img1, title: 'Eternal Grace' },
-    { id: 2, src: img10, title: 'Golden Moments' },
-    { id: 3, src: img16, title: 'Together Forever' },
-    { id: 4, src: img2, title: 'Quiet Reflection' },
-    { id: 5, src: img17, title: 'Love Story' },
-    { id: 6, src: img3, title: 'Pencil Dreams' },
-    { id: 7, src: img21, title: 'Radiant Soul' },
-    { id: 8, src: img4, title: 'Soft Shadows' },
-    { id: 9, src: img23, title: 'Cherished Bond' },
-    { id: 10, src: img5, title: 'Abstract Mind' },
-    { id: 11, src: img24, title: 'Harmony' },
-    { id: 12, src: img7, title: 'Quick Sketch' },
-    { id: 13, src: img25, title: 'Forever Yours' },
-    { id: 14, src: img8, title: 'Character Art' },
+    { id: 1, src: img1, title: 'Whisper of Elegance' },
+    { id: 2, src: img10, title: 'Moments in Gold' },
+    { id: 3, src: img16, title: 'Bound by Love' },
+    { id: 4, src: img2, title: 'Silent Contemplation' },
+    { id: 5, src: img17, title: 'A Shared Journey' },
+    { id: 6, src: img3, title: 'Lines of Emotion ' },
+    { id: 7, src: img21, title: 'Inner Radiance' },
+    { id: 8, src: img4, title: 'Shaded Serenity' },
+    { id: 9, src: img23, title: 'A Precious Bond' },
+    { id: 10, src: img5, title: 'Thoughts in Form' },
+    { id: 11, src: img24, title: 'Balanced Beauty' },
+    { id: 12, src: img7, title: 'Sketch in Motion' },
+    { id: 13, src: img25, title: 'Promise Forever' },
+    { id: 14, src: img8, title: 'Eyes That Speak' },
   ]
 
   // Duplicate for seamless loop

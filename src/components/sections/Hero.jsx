@@ -1,5 +1,7 @@
 import React from 'react'
-import { MessageCircle, Heart } from 'lucide-react'
+import { Heart } from 'lucide-react'
+import { FaWhatsapp } from "react-icons/fa";
+
 import { useNavigate } from 'react-router-dom'
 import img24 from '../../assets/Artsify-Client-Details/img24.jpg'
 import img11 from '../../assets/Artsify-Client-Details/img11.jpg'
@@ -47,13 +49,13 @@ const Hero = () => {
                   View Gallery
                 </button>
                 <a
-                  href="https://wa.me/"
+                  href="https://wa.me/+918446060142"
                   target="_blank"
-                  rel="noreferrer"
-                  className="px-4 py-3 border border-green-200 text-green-600 rounded-full hover:bg-green-50 transition-all flex items-center justify-center bg-white/50"
+                  rel="noopener noreferrer"
+                  className="px-3 py-3 border border-green-200 text-green-600 rounded-full hover:bg-green-50 transition-all flex items-center justify-center bg-white/50"
                   aria-label="Chat on WhatsApp"
                 >
-                  <MessageCircle size={20} />
+                  <FaWhatsapp size={30} />
                 </a>
               </div>
             </div>

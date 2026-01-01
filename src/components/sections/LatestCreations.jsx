@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import img1 from '../../assets/Artsify-Client-Details/img1.jpg'
 import img19 from '../../assets/Artsify-Client-Details/img19.jpg'
-import img24 from '../../assets/Artsify-Client-Details/img24.jpg'
+import img33 from '../../assets/Artsify-Client-Details/img33.jpeg'
 import img12 from '../../assets/Artsify-Client-Details/img12.jpg'
 import img5 from '../../assets/Artsify-Client-Details/img5.jpg'
+import img30 from '../../assets/Artsify-Client-Details/img30.jpg'
+
 
 const LatestCreations = () => {
     const [loadedImages, setLoadedImages] = useState({});
@@ -12,12 +14,12 @@ const LatestCreations = () => {
     const sectionRef = useRef(null);
 
     const artPieces = [
-        { id: 1, src: img19, title: "Ethereal Gaze", category: "Portraits", tag: "Graphite • A4", aspect: "vertical", price: "₹500" },
-        { id: 2, src: img24, title: "Monochrome Study", category: "Portraits", tag: "Charcoal • A3", aspect: "square", price: "₹500" },
-        { id: 9, src: img1, title: "Divine Joy", category: "Sketches", tag: "Pencil • A4", aspect: "vertical", price: "N/A" },
-        { id: 10, src: img1, title: "Couple's Joy", category: "Couple Portraits", tag: "Charcoal • A3", aspect: "square", price: "₹700" },
-        { id: 11, src: img12, title: "Family Love", category: "Family Portraits", tag: "Acrylic • Custom", aspect: "vertical", price: "₹1200" },
-        { id: 12, src: img5, title: "Floral Case", category: "Phone Cases", tag: "Acrylic • Case", aspect: "square", price: "₹400" },
+        { id: 1, src: img19, title: "Depth of the Soul", category: "Portraits", tag: "Graphite • A4", aspect: "vertical", price: "₹500" },
+        { id: 2, src: img33, title: "Unspoken Depth", category: "Portraits", tag: "Charcoal • A3", aspect: "square", price: "₹500" },
+        { id: 9, src: img1, title: "Whisper of Elegance", category: "Couple Portraits", tag: "Pencil • A4", aspect: "vertical", price: "N/A" },
+        { id: 10, src: img30, title: "Ties That Remain", category: "Family Portraits", tag: "Charcoal • A3", aspect: "square", price: "₹700" },
+        { id: 11, src: img12, title: "Classic Charm", category: "Phone Cases", tag: "Acrylic • Custom", aspect: "vertical", price: "₹1200" },
+        { id: 12, src: img5, title: "Thoughts in Form", category: "Phone Cases", tag: "Acrylic • Case", aspect: "square", price: "₹400" },
     ];
 
     const displayPieces = artPieces.slice(0, 5);

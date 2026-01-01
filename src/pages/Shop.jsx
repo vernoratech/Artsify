@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Heart, ShoppingBag, Filter, Search } from 'lucide-react'
-import AnimateOnScroll, { StaggerContainer } from '../components/ui/AnimateOnScroll'
+import AnimateOnScroll from '../components/ui/AnimateOnScroll'
 import ProductModal from '../components/ui/ProductModal'
 
 // Import images
 import img1 from '../assets/Artsify-Client-Details/img1.jpg'
-import img2 from '../assets/Artsify-Client-Details/img2.jpg'
+import img33 from '../assets/Artsify-Client-Details/img33.jpeg'
 import img3 from '../assets/Artsify-Client-Details/img3.jpg'
 import img4 from '../assets/Artsify-Client-Details/img4.jpg'
 import img5 from '../assets/Artsify-Client-Details/img5.jpg'
@@ -13,28 +13,80 @@ import img8 from '../assets/Artsify-Client-Details/img8.jpg'
 import img9 from '../assets/Artsify-Client-Details/img9.jpg'
 import img12 from '../assets/Artsify-Client-Details/img12.jpg'
 import img18 from '../assets/Artsify-Client-Details/img18.webp'
-import img19 from '../assets/Artsify-Client-Details/img19.jpg'
+import img16 from '../assets/Artsify-Client-Details/img16.jpg'
 import img20 from '../assets/Artsify-Client-Details/img20.jpg'
-import img24 from '../assets/Artsify-Client-Details/img24.jpg'
+import img17 from '../assets/Artsify-Client-Details/img17.jpg'
 
-// Product data
+// ---------------- DAILY HOT DEAL HELPERS ----------------
+const getTodayKey = () => {
+  const d = new Date()
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`
+}
+
+const shuffleArray = (arr) => {
+  const copy = [...arr]
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+  }
+  return copy
+}
+
+const getRandomDiscount = () => Math.floor(Math.random() * 19) + 1 // 1–19%
+
+const applyDiscount = (price, discount) =>
+  Math.round(price - (price * discount) / 100)
+
+const getDailyDeals = (products) => {
+  const today = getTodayKey()
+  const cached = localStorage.getItem('dailyDeals')
+
+  if (cached) {
+    const parsed = JSON.parse(cached)
+    if (parsed.date === today) return parsed.deals
+  }
+
+  const discountable = products.filter(p => p.originalPrice)
+  const count = Math.random() < 0.5 ? 1 : 2
+
+  const selected = shuffleArray(discountable).slice(0, count)
+
+  const deals = selected.map(product => {
+    const discount = getRandomDiscount()
+    return {
+      ...product,
+      discount,
+      price: applyDiscount(product.originalPrice, discount),
+    }
+  })
+
+  localStorage.setItem(
+    'dailyDeals',
+    JSON.stringify({ date: today, deals })
+  )
+
+  return deals
+}
+
+// ---------------- PRODUCTS ----------------
 const products = [
-  { id: 1, src: img19, title: "Ethereal Gaze", category: "Portraits", tag: "Graphite • A4", price: 500, originalPrice: 700, badge: "Bestseller" },
-  { id: 2, src: img24, title: "Monochrome Study", category: "Portraits", tag: "Charcoal • A3", price: 500, originalPrice: null, badge: null },
-  { id: 3, src: img1, title: "Couple's Joy", category: "Couple Portraits", tag: "Charcoal • A3", price: 700, originalPrice: 900, badge: "Popular" },
-  { id: 4, src: img2, title: "Serenity", category: "Portraits", tag: "Pencil • A4", price: 450, originalPrice: null, badge: null },
-  { id: 5, src: img3, title: "Visionary", category: "Portraits", tag: "Graphite • A4", price: 550, originalPrice: null, badge: null },
-  { id: 6, src: img4, title: "Self Portrait", category: "Sketches", tag: "Pencil • A5", price: 300, originalPrice: 400, badge: "Sale" },
-  { id: 7, src: img5, title: "Floral Dreams", category: "Phone Cases", tag: "Acrylic • Case", price: 400, originalPrice: null, badge: "New" },
-  { id: 8, src: img8, title: "Thoughtful Expression", category: "Sketches", tag: "Charcoal • A4", price: 350, originalPrice: null, badge: null },
-  { id: 9, src: img9, title: "The Dark Knight", category: "Fan Art", tag: "Graphite • A3", price: 600, originalPrice: null, badge: "Limited" },
-  { id: 10, src: img12, title: "Family Bond", category: "Family Portraits", tag: "Acrylic • Custom", price: 1200, originalPrice: 1500, badge: "Premium" },
-  { id: 11, src: img18, title: "Eternal Love", category: "Couple Portraits", tag: "Mixed Media • A2", price: 850, originalPrice: null, badge: null },
-  { id: 12, src: img20, title: "Divine Radiance", category: "Mythology", tag: "Charcoal • A2", price: 750, originalPrice: 950, badge: "Featured" },
+  { id: 1, src: img16, title: "Ethereal Gaze", category: "Portraits", tag: "Graphite • A4", price: 500, originalPrice: 700, badge: "Bestseller" },
+  { id: 2, src: img17, title: "Monochrome Study", category: "Fan Art", tag: "Charcoal • A3", price: 500, originalPrice: null, badge: null },
+  { id: 3, src: img18, title: "Couple's Joy", category: "Couple Portraits", tag: "Charcoal • A3", price: 700, originalPrice: 900, badge: "Popular" },
+  { id: 4, src: img33, title: "Serenity", category: "Fan Art", tag: "Pencil • A4", price: 450, originalPrice: null, badge: null },
+  // { id: 5, src: img3, title: "Visionary", category: "Portraits", tag: "Graphite • A4", price: 550, originalPrice: null, badge: null },
+  // { id: 6, src: img4, title: "Self Portrait", category: "Sketches", tag: "Pencil • A5", price: 300, originalPrice: 400, badge: "Sale" },
+  // { id: 7, src: img5, title: "Floral Dreams", category: "Phone Cases", tag: "Acrylic • Case", price: 400, originalPrice: null, badge: "New" },
+  // { id: 8, src: img8, title: "Thoughtful Expression", category: "Sketches", tag: "Charcoal • A4", price: 350, originalPrice: null, badge: null },
+  // { id: 9, src: img9, title: "The Dark Knight", category: "Fan Art", tag: "Graphite • A3", price: 600, originalPrice: null, badge: "Limited" },
+  // { id: 10, src: img12, title: "Family Bond", category: "Family Portraits", tag: "Acrylic • Custom", price: 1200, originalPrice: 1500, badge: "Premium" },
+  // { id: 11, src: img18, title: "Eternal Love", category: "Couple Portraits", tag: "Mixed Media • A2", price: 850, originalPrice: null, badge: null },
+  // { id: 12, src: img20, title: "Divine Radiance", category: "Mythology", tag: "Charcoal • A2", price: 750, originalPrice: 950, badge: "Featured" },
 ]
 
 const categories = ["All", "Portraits", "Sketches", "Couple Portraits", "Family Portraits", "Phone Cases", "Fan Art", "Mythology"]
 
+// ---------------- COMPONENT ----------------
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [selectedProduct, setSelectedProduct] = useState(null)
@@ -43,20 +95,44 @@ const Shop = () => {
   const [searchQuery, setSearchQuery] = useState("")
   const [showFilters, setShowFilters] = useState(false)
 
-  // Filter products
+  const [dailyDeals, setDailyDeals] = useState([])
+  const [timeLeft, setTimeLeft] = useState({ hours: '00', minutes: '00', seconds: '00' })
+
+  // INIT DAILY DEALS + TIMER
+  useEffect(() => {
+    setDailyDeals(getDailyDeals(products))
+
+    const updateTimer = () => {
+      const now = new Date()
+      const midnight = new Date()
+      midnight.setHours(24, 0, 0, 0)
+
+      const diff = midnight - now
+      setTimeLeft({
+        hours: String(Math.floor(diff / 3600000)).padStart(2, '0'),
+        minutes: String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'),
+        seconds: String(Math.floor((diff % 60000) / 1000)).padStart(2, '0'),
+      })
+    }
+
+    updateTimer()
+    const timer = setInterval(updateTimer, 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  // FILTER PRODUCTS
   const filteredProducts = products.filter(product => {
     const matchesCategory = selectedCategory === "All" || product.category === selectedCategory
-    const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    const matchesSearch =
+      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.category.toLowerCase().includes(searchQuery.toLowerCase())
     return matchesCategory && matchesSearch
   })
 
-  // Handle image load
   const handleImageLoad = (id) => {
     setLoadedImages(prev => ({ ...prev, [id]: true }))
   }
 
-  // Toggle wishlist
   const toggleWishlist = (e, id) => {
     e.stopPropagation()
     setWishlist(prev =>
@@ -64,11 +140,9 @@ const Shop = () => {
     )
   }
 
-
-
   return (
     <div className="min-h-screen bg-gray-50">
-      <style>{`
+<style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
                 .poppins-text { font-family: 'Poppins', sans-serif; }
                 
@@ -149,8 +223,7 @@ const Shop = () => {
                     animation: float 6s ease-in-out infinite;
                 }
             `}</style>
-
-      {/* Hero Section */}
+{/* Hero Section */}
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-sky-50 via-white to-pink-50 overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -405,7 +478,7 @@ const Shop = () => {
       </section>
 
       {/* List View Section */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateOnScroll animation="fadeUp">
             <div className="mb-10">
@@ -418,7 +491,7 @@ const Shop = () => {
             </div>
           </AnimateOnScroll>
 
-          {/* Horizontal List Cards */}
+          Horizontal List Cards
           <div className="space-y-4">
             {products.slice(0, 5).map((product, index) => (
               <AnimateOnScroll key={product.id} animation="fadeUp" delay={index * 50}>
@@ -427,7 +500,7 @@ const Shop = () => {
                   onClick={() => setSelectedProduct(product)}
                 >
                   <div className="flex flex-col sm:flex-row">
-                    {/* Image */}
+                    Image
                     <div className="relative w-full sm:w-48 h-48 sm:h-auto flex-shrink-0 overflow-hidden">
                       <img
                         src={product.src}
@@ -441,7 +514,7 @@ const Shop = () => {
                       )}
                     </div>
 
-                    {/* Info */}
+                    Info
                     <div className="flex-1 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <div>
                         <p className="text-xs text-purple-600 font-medium mb-1">{product.category}</p>
@@ -476,9 +549,9 @@ const Shop = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Hot Deals Section */}
+      {/* 🔥 HOT DEALS SECTION */}
       <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl" />
@@ -496,22 +569,22 @@ const Shop = () => {
                   Hot <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400 italic">Deals</span>
                 </h2>
               </div>
+
               <div className="mt-4 md:mt-0 flex items-center gap-3 text-white/70">
                 <span className="text-sm">Ends in:</span>
                 <div className="flex gap-2">
-                  <span className="px-3 py-1.5 bg-white/10 rounded-lg text-white font-mono">23</span>
+                  <span className="px-3 py-1.5 bg-white/10 rounded-lg text-white font-mono">{timeLeft.hours}</span>
                   <span>:</span>
-                  <span className="px-3 py-1.5 bg-white/10 rounded-lg text-white font-mono">59</span>
+                  <span className="px-3 py-1.5 bg-white/10 rounded-lg text-white font-mono">{timeLeft.minutes}</span>
                   <span>:</span>
-                  <span className="px-3 py-1.5 bg-white/10 rounded-lg text-white font-mono">42</span>
+                  <span className="px-3 py-1.5 bg-white/10 rounded-lg text-white font-mono">{timeLeft.seconds}</span>
                 </div>
               </div>
             </div>
           </AnimateOnScroll>
 
-          {/* Compact Deal Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {products.filter(p => p.originalPrice).slice(0, 4).map((product, index) => (
+            {dailyDeals.map((product, index) => (
               <AnimateOnScroll key={product.id} animation="fadeUp" delay={index * 75}>
                 <div
                   className="group bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden cursor-pointer hover:bg-white/15 transition-all"
@@ -524,7 +597,7 @@ const Shop = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-2 left-2 px-2 py-1 bg-red-500 text-white text-[10px] font-bold rounded-full">
-                      -{Math.round((1 - product.price / product.originalPrice) * 100)}%
+                      -{product.discount}%
                     </div>
                   </div>
                   <div className="p-4">
@@ -541,7 +614,7 @@ const Shop = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+            {/* CTA Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <AnimateOnScroll animation="fadeUp">
@@ -558,7 +631,7 @@ const Shop = () => {
         </div>
       </section>
 
-      {/* Product Modal */}
+      {/* PRODUCT MODAL */}
       <ProductModal
         product={selectedProduct}
         isOpen={!!selectedProduct}

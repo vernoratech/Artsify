@@ -3,13 +3,14 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { artPieces } from '../data/artPieces'
 import AnimateOnScroll, { StaggerContainer } from '../components/ui/AnimateOnScroll'
+import { FaWhatsapp } from "react-icons/fa";
 
 const testimonials = [
   {
     id: 1,
-    text: "The detail is absolutely insane! Best anniversary gift I've ever given. My wife was in tears when she saw it.",
-    author: "Priya Sharma",
-    location: "Mumbai",
+    text: "Such a beautiful artwork! The sketch truly stands out with its fine detailing and expressive shading. The emotions are captured so naturally that the artwork feels lively and real. It’s visually stunning and clearly reflects dedication, patience, and artistic passion. Absolutely loved it wonderful work.",
+    author: "Shivali",
+    location: "MHJ Fame (Satara)",
     rating: 5,
     date: "2 weeks ago",
     verified: true,
@@ -17,9 +18,9 @@ const testimonials = [
   },
   {
     id: 2,
-    text: "Ordered a sketch of my late grandfather. It brought tears to my eyes. The artist captured his essence perfectly. Thank you for this treasure!",
-    author: "Rahul Mehta",
-    location: "Delhi",
+    text: "OThe artwork looks absolutely amazing! The sketch is so beautifully done every detail, expression, and shading feels full of life. It truly captures the emotion of the picture in a stunning way. I really loved the creativity and effort behind this piece. It’s impressive, eye-catching, and genuinely feels special. Wonderful work!",
+    author: "Neha Patil",
+    location: "Umbarde (Sindhudurg)",
     rating: 5,
     date: "1 month ago",
     verified: true,
@@ -27,56 +28,56 @@ const testimonials = [
   },
   {
     id: 3,
-    text: "Professional, fast, and exactly what I wanted. The communication was excellent throughout. Highly recommended for anyone looking for custom art.",
-    author: "Sneha Kulkarni",
-    location: "Pune",
-    rating: 5,
-    date: "3 weeks ago",
+    text: "The sketch has come out truly amazing. The shading, proportions, and overall finishing look very clean and professional. You’ve captured the expressions beautifully, and every detail reflects the effort and passion you put into the artwork. I’m really impressed with the final result absolutely loved it and truly appreciate your wonderful work.",
+    author: "Mayur Pawar",
+    location: "Ambernath (Mumbai)",
+    rating: 4,
+    date: "2 months ago",
     verified: true,
     artType: "Pet Portrait"
   },
   {
     id: 4,
-    text: "Gifted this to my parents on their 25th anniversary. They absolutely loved it! The charcoal finish gives it such a classic look.",
-    author: "Amit Patel",
-    location: "Ahmedabad",
+    text: "Wow… really beautiful! The artwork is totally worth it every detail is so clean and perfectly done. The expressions, shading, and finishing bring the sketch to life. You’ve put amazing effort and passion into this piece, and it truly shows. I’m genuinely impressed and super happy with the result absolutely loved it!",
+    author: "Vrinda Patil",
+    location: "Ambernath (Mumbai)",
     rating: 5,
-    date: "1 week ago",
+    date: "5 months ago",
     verified: true,
     artType: "Family Portrait"
   },
   {
     id: 5,
-    text: "Third order from Artsify and each one has been perfect. The consistency in quality is remarkable. Found my go-to artist!",
-    author: "Kavitha Nair",
-    location: "Bangalore",
-    rating: 5,
-    date: "5 days ago",
+    text: "Thank you so much for this beautiful sketch. The artwork is truly wonderful and full of life. The expression, shading, and finishing are done with so much care and emotion. It feels very special and meaningful to me. I really appreciate the effort and creativity behind this lovely piece absolutely loved it!",
+    author: "Swaraa ",
+    location: "pen (Panvel)",
+    rating: 4,
+    date: "10 months ago",
     verified: true,
     artType: "Single Portrait"
   },
   {
     id: 6,
-    text: "Was skeptical at first but the preview feature gave me confidence. Final artwork exceeded all expectations. Worth every rupee!",
-    author: "Vikram Singh",
-    location: "Jaipur",
+    text: "Absolutely amazing work! The detailing and finishing are truly outstanding. Every element looks so perfect and beautifully crafted. I really loved the effort, creativity, and emotion reflected in the design. It’s not just a piece of work it feels meaningful and truly heart-touching. Thank you for such a wonderful experience.",
+    author: "Shalaka Katkar",
+    location: " Pali (Raigad)",
     rating: 5,
-    date: "2 weeks ago",
+    date: "1 year ago",
     verified: true,
     artType: "Pencil Sketch"
   },
 ];
 
 const featuredTestimonial = {
-  text: "I've ordered from many artists online, but Artsify is on another level. The attention to detail, the communication, and the final product – everything was perfect. My daughter's portrait now hangs in our living room and everyone who visits asks about it. This is not just art, it's emotion captured on paper.",
-  author: "Meera Krishnan",
-  location: "Chennai",
-  artType: "Child Portrait",
-  image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+  text: " This is not just a sketch, it’s an emotion which we can feel. The artwork is really nice and full of feelings.",
+  author: "Devendra Shukla",
+  location: "Nalasopara (Mumbai)",
+  artType: "Sketch",
+  image: "https://res.cloudinary.com/dj1fxrmef/image/upload/v1767250503/WhatsApp_Image_2025-12-29_at_3.37.46_PM_qd499i_b1sre5.jpg"
 };
 
 const stats = [
-  { number: "500+", label: "Happy Customers" },
+  { number: "50+", label: "Happy Customers" },
   { number: "98%", label: "Satisfaction Rate" },
   { number: "4.9", label: "Average Rating", icon: Star },
   { number: "7", label: "Days Avg. Delivery" },
@@ -203,12 +204,17 @@ const Testimonials = () => {
                         <p className="font-medium text-gray-900 text-sm">{t.author}</p>
                         {t.verified && <BadgeCheck size={14} className="text-sky-500" />}
                       </div>
-                      <p className="text-gray-400 text-xs">{t.location}</p>
+                      {/* Edited This Parts As Testimonial Card */}
+                      <div className="flex items-center gap-1">
+                      <p className="text-gray-400 text-xs pr-1">{t.location}</p>
+                      <p className="text-pink-600"> • </p>
+                      <p className="text-xs /*bg-pink-50*/ text-pink-600 px-0 py-1 rounded-full">{t.artType}</p>
+                      </div>
                     </div>
                   </div>
-                  <span className="text-xs bg-pink-50 text-pink-600 px-2 py-1 rounded-full">
+                  {/* <span className="text-xs bg-pink-50 text-pink-600 px-2 py-1 rounded-full">
                     {t.artType}
-                  </span>
+                  </span> */}
                 </div>
               </div>
             ))}
@@ -291,12 +297,12 @@ const Testimonials = () => {
               Start Your Order <ArrowRight size={18} />
             </button>
             <a
-              href="https://wa.me/919999999999"
+              href="https://wa.me/+918446060142"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-white/90 hover:text-white transition-colors"
             >
-              <MessageCircle size={20} /> Chat on WhatsApp
+              < FaWhatsapp size={30} /> Chat on WhatsApp
             </a>
           </div>
         </div>

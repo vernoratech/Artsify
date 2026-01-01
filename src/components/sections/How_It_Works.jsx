@@ -1,4 +1,5 @@
-import { CheckCircle, Gift, MessageCircle, ShieldCheck, Upload } from "lucide-react";
+import { CheckCircle, Gift, ShieldCheck, Upload } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const HowItWorks = () => {
   const steps = [
@@ -40,7 +41,7 @@ const HowItWorks = () => {
         </div>
         <div className="mt-12 text-center">
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-medium">
-            <MessageCircle size={16} /> WhatsApp support available at every step
+            <FaWhatsapp size={20} /> WhatsApp support available at every step
           </span>
         </div>
       </div>

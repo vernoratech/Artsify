@@ -220,11 +220,11 @@ For users in the European Union, we strive to comply with GDPR requirements. Con
                                 If you have any questions or concerns about this Privacy Policy, please contact us.
                             </p>
                             <a
-                                href="mailto:artsify.official@gmail.com"
+                                href="mailto:artsify98@gmail.com"
                                 className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors"
                             >
                                 <Mail className="w-4 h-4" />
-                                artsify.official@gmail.com
+                                artsify98@gmail.com
                             </a>
                         </div>
                     </AnimateOnScroll>
