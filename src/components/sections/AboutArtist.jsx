@@ -40,7 +40,7 @@ const AboutArtist = () => {
           {/* Mini Timeline */}
           <div className="flex gap-4 border-t border-gray-100 pt-6">
             <div>
-              <span className="block text-xl font-bold text-sky-500">2020</span>
+              <span className="block text-xl font-bold text-sky-500">2017</span>
               <span className="text-xs text-gray-500 uppercase">Started</span>
             </div>
             <div className="w-px bg-gray-200"></div>
@@ -50,7 +50,7 @@ const AboutArtist = () => {
             </div>
             <div className="w-px bg-gray-200"></div>
             <div>
-              <span className="block text-xl font-bold text-gray-800">2024</span>
+              <span className="block text-xl font-bold text-gray-800">2025</span>
               <span className="text-xs text-gray-500 uppercase">Artsify</span>
             </div>
           </div>

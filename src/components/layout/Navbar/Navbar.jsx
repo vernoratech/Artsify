@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X, ArrowRight, Instagram, MessageCircle } from 'lucide-react';
+import { Menu, X, ArrowRight, Instagram } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const links = [
   { name: 'Home', to: '/' },
@@ -196,7 +197,7 @@ const Navbar = () => {
             {/* Social Links */}
             <div className="flex items-center justify-center gap-4 mb-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/artsify.__"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white/60 rounded-full text-gray-600 hover:text-pink-500 hover:bg-white transition-all"
@@ -204,12 +205,12 @@ const Navbar = () => {
                 <Instagram size={22} />
               </a>
               <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/+918446060142"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white/60 rounded-full text-gray-600 hover:text-green-500 hover:bg-white transition-all"
               >
-                <MessageCircle size={22} />
+                <FaWhatsapp size={22} />
               </a>
             </div>
 

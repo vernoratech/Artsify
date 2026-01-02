@@ -224,23 +224,57 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="relative border-t border-gray-800/50 bg-black/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-500 text-sm flex items-center gap-1">
-              &copy; {new Date().getFullYear()} Artsify. Made with
-              <Heart size={14} className="text-pink-500 fill-pink-500 mx-1 animate-pulse" />
-              in India <span> ~Developed By <a href="https://www.vernoratech.in/" target='_blank'><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-500 fa-bold">Vernora</span><span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-300 fa-bold">Tech</span></a></span>
-            </p>
-            <div className="flex items-center gap-6 text-sm text-gray-500">
-              <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
-              <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-              <Link to="/cookies" className="hover:text-white transition-colors">Cookies</Link>
-            </div>
-          </div>
-        </div>
+     {/* Bottom Bar */}
+<div className="relative border-t border-gray-800/50 bg-black/30">
+  <div className="max-w-7xl mx-auto px-4 py-6">
+    <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+
+      {/* Copyright */}
+      <p className="text-gray-500 text-xs sm:text-sm leading-relaxed flex flex-col sm:flex-row items-center gap-1">
+        <span className="flex items-center gap-1">
+          &copy; {new Date().getFullYear()} Artsify. Made with
+          <Heart
+            size={14}
+            className="text-pink-500 fill-pink-500 animate-pulse"
+          />
+          in India
+        </span>
+
+        <span className="mt-1 sm:mt-0 sm:ml-2">
+          ~ Developed by{" "}
+          <a
+            href="https://www.vernoratech.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold"
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-500">
+              Vernora
+            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-300">
+              Tech
+            </span>
+          </a>
+        </span>
+      </p>
+
+      {/* Footer Links */}
+      <div className="flex gap-4 text-xs sm:text-sm text-gray-500">
+        <Link to="/terms" className="hover:text-white transition-colors">
+          Terms
+        </Link>
+        <Link to="/privacy" className="hover:text-white transition-colors">
+          Privacy
+        </Link>
+        <Link to="/cookies" className="hover:text-white transition-colors">
+          Cookies
+        </Link>
       </div>
+
+    </div>
+  </div>
+</div>
+
     </footer>
   )
 }

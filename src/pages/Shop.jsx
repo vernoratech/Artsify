@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Heart, ShoppingBag, Filter, Search } from 'lucide-react'
 import AnimateOnScroll from '../components/ui/AnimateOnScroll'
 import ProductModal from '../components/ui/ProductModal'
+import { useNavigate } from 'react-router-dom'
+
 
 // Import images
 import img1 from '../assets/Artsify-Client-Details/img1.jpg'
@@ -88,6 +90,7 @@ const categories = ["All", "Portraits", "Sketches", "Couple Portraits", "Family 
 
 // ---------------- COMPONENT ----------------
 const Shop = () => {
+    const navigate = useNavigate()
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [loadedImages, setLoadedImages] = useState({})
@@ -624,7 +627,7 @@ const Shop = () => {
             <p className="text-gray-500 text-lg mb-8 max-w-2xl mx-auto">
               Get a custom artwork made just for you. Share your ideas and let's create something unique together!
             </p>
-            <button className="px-8 py-4 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl">
+            <button  onClick={() => navigate('/contact')} className="px-8 py-4 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl">
               Request Custom Artwork
             </button>
           </AnimateOnScroll>

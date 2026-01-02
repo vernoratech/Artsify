@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { X as CloseIcon, Heart, ShoppingBag } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+
 
 const ProductModal = ({ product, isOpen, onClose, wishlist, toggleWishlist }) => {
+    const navigate = useNavigate()
     // Prevent body scroll when modal is open
     useEffect(() => {
         if (isOpen) {
@@ -163,7 +166,10 @@ const ProductModal = ({ product, isOpen, onClose, wishlist, toggleWishlist }) =>
                             >
                                 <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-current' : ''}`} />
                             </button>
-                            <button className="flex-1 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all transform hover:scale-[1.02] shadow-lg flex items-center justify-center gap-2">
+                            <button onClick={() => {
+                                onClose()
+                                navigate('/contact')
+                            }} className="flex-1 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all transform hover:scale-[1.02] shadow-lg flex items-center justify-center gap-2">
                                 <ShoppingBag className="w-5 h-5" />
                                 Order Now
                             </button>

@@ -64,7 +64,7 @@ const Services = () => {
       description: "Celebrate your furry friends! We create adorable portraits that capture their unique personality.",
       price: "₹500",
       duration: "7-10 days",
-      image: img8,
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBJNF6iNfUzHfgutVHmj9rkfjoCwjzdY-tQQ&s",
       features: ["Any pet type", "Action or portrait pose", "Custom backgrounds", "1 revision included"]
     },
     {
